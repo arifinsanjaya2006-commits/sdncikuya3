@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SD Negeri Cikuya 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar"> Kec. Solear, Kab. Tangerang, Prov. Banten</div>
+
+<header class="header">
+  <a href="#beranda" class="brand">
+    <span class="logo"><img src="logo.png" alt="Logo SDN Cikuya 3"></span>
+    <span><strong>SD NEGERI CIKUYA 3</strong><small>"Belajar, tumbuh, berprestasi."</small></span>
+  </a>
+  <button class="icon-btn" id="openMenu" aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
+</header>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <span class="logo"><img src="logo.png" alt="Logo SDN Cikuya 3"></span>
+    <span><strong>SDN CIKUYA 3</strong><small>"Belajar, tumbuh, berprestasi."</small></span>
+    <button class="close-btn" id="closeMenu" aria-label="Tutup menu"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <nav>
+    <a href="#beranda"><i class="fa-solid fa-house"></i> Beranda</a>
+    <a href="profil.html"><i class="fa-solid fa-building-columns"></i> Profil Sekolah</a>
+    <a href="#galeri"><i class="fa-regular fa-images"></i> Galeri Kegiatan</a>
+    <a href="#warta"><i class="fa-regular fa-newspaper"></i> Berita &amp; Informasi</a>
+    <a href="#legalitas"><i class="fa-solid fa-award"></i> Akreditasi</a>
+    <a href="#kontak"><i class="fa-solid fa-phone"></i> Kontak</a>
+  </nav>
+  <div class="drawer-foot"><small>STATUS AKREDITASI</small><span class="badge gold">TERAKREDITASI B</span></div>
+</aside>
+
+<main id="beranda">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="chips"><span class="chip red"><i class="fa-solid fa-circle"></i> PPDB 2026/2027</span><span class="chip">Sekolah Berkualitas</span></div>
+      <h1>SDN Cikuya 3</h1>
+      <p>Membentuk generasi berkarakter Pancasila, cerdas, terampil, dan berakhlak mulia di era Merdeka Belajar.</p>
+      <a class="btn" href="profil.html">Profil Sekolah <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <div class="sheet">
+    <section class="card welcome">
+      <span class="tile blue"><i class="fa-solid fa-graduation-cap"></i></span>
+      <div><small class="label">SAMBUTAN SEKOLAH <span class="badge gold">2026/2027</span></small>
+      <p>"Pendidikan dasar adalah pondasi pekerti bangsa. Mari bersama wujudkan generasi hebat."</p></div>
+    </section>
+
+    <section id="data">
+      <h2 class="sec">Data Pokok Pendidikan</h2>
+      <div class="grid2">
+        <div class="card stat"><small>Total Siswa</small><b>445 <em>Anak</em></b><span class="foot">244 L &nbsp;•&nbsp; 201 P</span></div>
+        <div class="card stat"><small>Guru &amp; Tendik</small><b>14 <em>Pendidik</em></b><span class="foot">92.8% Sarjana S1/S2</span></div>
+        <div class="card stat"><small>Rombel</small><b>13 <em>Kelas</em></b><span class="foot">Rasio 35 Siswa/Rbl</span></div>
+        <div class="card stat"><small>Status Mutu</small><b class="gold-t">Grade B</b><span class="foot">BAN-S/M Banten</span></div>
+      </div>
+
+      <div class="card" id="legalitas">
+        <div class="legal-head"><span class="tile red"><i class="fa-solid fa-shield-halved"></i></span>
+          <div><strong>Legalitas Satuan Pendidikan</strong><small>Kementerian Pendidikan Dasar dan Menengah RI</small></div><span class="badge gold">NEGERI</span></div>
+        <div class="grid2 tight">
+          <div class="cell"><small>NPSN Resmi</small><b>20604200</b></div>
+          <div class="cell"><small>Kurikulum Aktif</small><b class="red-t">SD Merdeka</b></div>
+          <div class="cell"><small>Waktu KBM</small><b>6 Hari (Double Shift)</b></div>
+          <div class="cell"><small>Tahun Ajaran</small><b>2026/2027 Gasal</b></div>
+        </div>
+        <div class="note"><i class="fa-solid fa-book-open"></i> Rasio Siswa / Guru: 32<br>Proporsi Guru PNS/PPPK: 57.14%</div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec">Menu Layanan Cepat <small>Navigasi Utama</small></h2>
+      <div class="grid3">
+        <button class="quick" data-modal="visi"><span class="tile blue"><i class="fa-solid fa-flag"></i></span><b>Visi &amp; Misi</b><small>Tujuan Sekolah</small></button>
+        <button class="quick" data-modal="sejarah"><span class="tile blue"><i class="fa-solid fa-landmark"></i></span><b>Sejarah</b><small>Jejak Langkah</small></button>
+        <button class="quick" data-modal="pendidik"><span class="tile blue"><i class="fa-solid fa-people-group"></i></span><b>Pendidik</b><small>14 Tenaga Ahli</small></button>
+        <button class="quick" data-modal="ekskul"><span class="tile blue"><i class="fa-solid fa-person-running"></i></span><b>Ekskul</b><small>5 Cabang Bakat</small></button>
+        <button class="quick" data-modal="prestasi"><span class="tile gold"><i class="fa-solid fa-trophy"></i></span><b>Prestasi</b><small>Tingkat Kec/Kab</small></button>
+        <button class="quick" data-modal="kontak"><span class="tile blue"><i class="fa-solid fa-phone-volume"></i></span><b>Kontak</b><small>Info &amp; PPDB</small></button>
+      </div>
+    </section>
+
+    <section id="warta">
+      <h2 class="sec">Warta &amp; Pengumuman <small class="red-t">Terbaru</small></h2>
+      <article class="announce">
+        <span class="badge gold">PENTING</span> <small>Minggu Ini</small>
+        <h3>Jadwal Asesmen Pembelajaran &amp; Pembagian Rapor</h3>
+        <p>Diberitahukan kepada seluruh wali murid bahwa evaluasi sumatif akhir semester gasal 2026/2027 dimulai bulan depan.</p>
+      </article>
+      <article class="card news"><div class="thumb g1"><i class="fa-solid fa-seedling"></i></div>
+        <div><span class="badge gold">Kurikulum Merdeka</span><h3>Penerapan Projek Penguatan Profil Pelajar Pancasila (P5)</h3><small><i class="fa-regular fa-calendar"></i> 12 Oktober 2026</small></div></article>
+      <article class="card news"><div class="thumb g2"><i class="fa-solid fa-trophy"></i></div>
+        <div><span class="badge gold">Prestasi</span><h3>Juara 1 Lomba Cerdas Cermat &amp; Pramuka Tingkat Solear</h3><small><i class="fa-regular fa-calendar"></i> 28 September 2026</small></div></article>
+    </section>
+
+    <section id="ekskul">
+      <h2 class="sec">Ekstrakurikuler Pilihan <small>Minat &amp; Bakat</small></h2>
+      <div class="scroller">
+        <div class="card mini"><img class="mini-photo" src="ekskul-pramuka.jfif" alt="Pramuka Inti"><b>Pramuka Inti</b><small>Wajib Kelas 3-6</small></div>
+        <div class="card mini"><img class="mini-photo" src="ekskul-marawis.jpg" alt="Seni Marawis"><b>Seni Marawis</b><small>Pentas Religi</small></div>
+        <div class="card mini"><img class="mini-photo" src="ekskul-futsal.jfif" alt="Futsal"><b>Futsal</b><small>Olahraga</small></div>
+      </div>
+    </section>
+
+    <section id="galeri">
+      <h2 class="sec">Dokumentasi &amp; Galeri <small>Aktivitas Siswa</small></h2>
+      <div class="grid2">
+        <figure class="card gal"><img class="photo" src="upacara-bendera.jfif" alt="Upacara Bendera"><b>Upacara Bendera</b><small>Pembiasaan Cinta Tanah Air</small></figure>
+<figure class="card gal"><img class="photo" src="literasi-pagi.jfif" alt="Literasi Pagi"><b>Literasi Pagi</b><small>Gemar Membaca Buku</small></figure>
+      </div>
+      <div class="card prestasi"><strong><i class="fa-solid fa-trophy"></i> Pencapaian Siswa SDN Cikuya 3</strong>
+        <div class="row"><span class="num">1</span> Lomba Cerdas Cermat Solear <b class="red-t">Tingkat Kec.</b></div>
+        <div class="row"><span class="num">2</span> Pentas Seni Tari FLS2N SD <b class="red-t">Harapan 1</b></div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <h2 class="sec">Lokasi &amp; Kontak Resmi <small>Solear Tangerang</small></h2>
+      <div class="card">
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=-6.3116,106.4041&z=16&output=embed" width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi SDN Cikuya 3"></iframe>
+          <div class="coord"><span>Titik: -6.3116, 106.4041</span>
+          <a href="https://www.google.com/maps?q=-6.3116,106.4041" target="_blank" rel="noopener">Buka Peta <i class="fa-solid fa-up-right-from-square"></i></a></div>
+        </div>
+        <div class="note addr"><small>ALAMAT LENGKAP SEKOLAH</small>Kp. Pala, Desa Cikuya, Kecamatan Solear, Kabupaten Tangerang, Provinsi Banten 15730.</div>
+        <a class="contact" href="https://wa.me/6281317178510" target="_blank" rel="noopener"><span class="tile red round"><i class="fa-brands fa-whatsapp"></i></span><span><small>Telepon / WhatsApp Humas</small><b>0813-1717-8510</b></span><i class="fa-solid fa-chevron-right"></i></a>
+        <a class="contact" href="https://mail.google.com/mail/?view=cm&fs=1&to=sdncikuya30@gmail.com" target="_blank" rel="noopener"><span class="tile blue round"><i class="fa-regular fa-envelope"></i></span><span><small>Surel Resmi (E-Mail)</small><b>sdncikuya30@gmail.com</b></span><i class="fa-solid fa-chevron-right"></i></a>
+      </div>
+      <div class="card tagline"><i class="fa-solid fa-hands-holding-child red-t"></i> <b class="red-t">PENDIDIKAN RAMAH ANAK</b><small>Mendukung program Merdeka Belajar untuk mencetak anak didik yang mandiri, kritis, berkebinekaan global, dan bahagia di lingkungan sekolah.</small></div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="brand"><span class="logo"><img src="logo.png" alt="Logo SDN Cikuya 3"></span><span><strong>SD NEGERI CIKUYA 3</strong><small>"Belajar, tumbuh, berprestasi."</small></span></div>
+  <p>Mewujudkan generasi muda Indonesia yang berakhlak mulia, berprestasi, cerdas, berkarakter Profil Pelajar Pancasila, dan cinta tanah air.</p>
+  <h4>ALAMAT LENGKAP</h4><p>Kp. Pala, Desa Cikuya, Kec. Solear, Kab. Tangerang, Prov. Banten</p>
+  <h4>KONTAK RESMI</h4><p><i class="fa-solid fa-phone"></i> 0813-1717-8510<br><i class="fa-regular fa-envelope"></i> sdncikuya30@gmail.com</p>
+ <div class="social">
+  <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com/sdncikuya3" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+  <a href="https://youtube.com/@sdncikuya03" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+</div>
+  <div class="chips"><span class="chip dark">Akreditasi B</span><span class="chip dark">Kurikulum Merdeka</span></div>
+  <small class="copy">© 2026/2027 SD Negeri Cikuya 3. Hak Cipta Dilindungi Undang-Undang.</small>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box"><button class="close-btn dark" id="closeModal" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+    <h3 id="modalTitle"></h3><div id="modalBody"></div></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
