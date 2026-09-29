@@ -8,7 +8,13 @@ button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 small{font-size:11px;color:var(--mute);display:block}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
-.topbar{background:var(--maroon);color:#fff;font-size:10px;padding:4px 14px}
+.topbar{
+  background:var(--maroon);
+  color:#fff;
+  font-size:10px;
+  padding:4px 14px;
+  text-align:center;
+}
 .header{position:sticky;top:0;z-index:30;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,.08)}
 .brand{display:flex;gap:10px;align-items:center}
 .brand strong{display:block;color:var(--maroon);font-size:15px;font-weight:800;line-height:1.1}
@@ -151,22 +157,376 @@ small{font-size:11px;color:var(--mute);display:block}
 .akr strong{display:block;font-size:14px}
 .totop{display:table;margin:24px auto 0;background:#fff;border-radius:99px;padding:8px 16px;font-size:11px;font-weight:600;box-shadow:0 1px 4px rgba(17,24,39,.1)}
 
+/* =====================================================
+   TAMPILAN LAPTOP / DESKTOP
+   HP TETAP MENGGUNAKAN CSS YANG LAMA
+   ===================================================== */
+
+.desktop-nav {
+  display: none;
+}
+
 /* ===== Tampilan untuk layar besar (tablet/komputer) ===== */
+
 @media (min-width:768px){
-  body{max-width:900px}
-  .hero{border-radius:0 0 24px 24px}
-  .grid2{grid-template-columns:repeat(4,1fr)}
-  .grid3{grid-template-columns:repeat(6,1fr)}
-  .scroller{grid-template-columns:repeat(3,1fr)}
-  .gal{overflow:hidden}
-  .sheet .grid2:has(.gal){grid-template-columns:repeat(2,1fr)}
-  .photo-hero{height:340px}
-  .mini-photo{height:160px}
-  .gal .photo{height:200px}
+
+  body{
+    max-width:900px;
+  }
+
+  .hero{
+    border-radius:0 0 24px 24px;
+  }
+
+  .grid2{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .grid3{
+    grid-template-columns:repeat(6,1fr);
+  }
+
+  .scroller{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .gal{
+    overflow:hidden;
+  }
+
+  .sheet .grid2:has(.gal){
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  /* FOTO PROFIL */
+  .photo-hero{
+    height:340px;
+  }
+
+  /* FOTO EKSTRAKURIKULER - LAPTOP */
+  .mini-photo{
+    height:100px;
+  }
+
+  /* FOTO GALERI - LAPTOP */
+  .gal .photo{
+    height:130px;
+  }
+
 }
+
+
+/* ===== LAPTOP BESAR ===== */
+
 @media (min-width:1024px){
-  body{max-width:1400px}
+
+  body{
+    max-width:1400px;
+  }
+
 }
+
+
+/* ===== MONITOR BESAR ===== */
+
 @media (min-width:1600px){
-  body{max-width:100%}
+
+  body{
+    max-width:100%;
+  }
+
+
+  /* TOP BAR */
+  .topbar {
+  padding: 8px 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+  /* HEADER */
+  .header {
+    position: relative;
+    min-height: 100px;
+    padding: 18px 5%;
+    box-shadow: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .brand {
+    gap: 14px;
+  }
+
+  .brand strong {
+    font-size: 23px;
+  }
+
+  .brand small {
+    font-size: 12px;
+  }
+
+  .logo {
+    width: 58px;
+    height: 58px;
+  }
+
+  /* NAVBAR LAPTOP */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -58px;
+
+    height: 58px;
+    padding: 0 5%;
+
+    background: var(--maroon);
+    z-index: 25;
+  }
+
+  .desktop-nav a {
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 0 20px;
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a.active {
+    background: var(--maroon-d);
+  }
+
+  .desktop-nav i {
+    font-size: 9px;
+  }
+
+  /* TOMBOL HAMBURGER HILANG DI LAPTOP */
+  .header .icon-btn {
+    display: none;
+  }
+
+  /* AREA PROFIL */
+  .page {
+    padding: 95px 5% 55px;
+    background: var(--bg);
+  }
+
+  /* BREADCRUMB */
+  .crumb {
+    max-width: 1280px;
+    margin: 0 auto 18px;
+    font-size: 12px;
+  }
+
+  /* JUDUL */
+  .page > h1 {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 42px;
+    letter-spacing: -.04em;
+    margin-bottom: 10px;
+  }
+
+  .page > .lead {
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  /* FOTO PROFIL BESAR */
+  .photo-hero {
+    max-width: 1280px;
+    height: 480px;
+
+    margin: 0 auto 32px;
+
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.16);
+  }
+
+  .photo-hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(95,0,16,.78) 0%,
+        rgba(95,0,16,.35) 45%,
+        rgba(95,0,16,.08) 100%
+      );
+
+    pointer-events: none;
+  }
+
+  .photo-hero figcaption {
+    z-index: 2;
+
+    padding: 55px 42px 32px;
+
+    font-size: 13px;
+  }
+
+  /* DESKRIPSI PROFIL */
+  .page > .prose,
+  .page > .sec,
+  .page > .sub,
+  .page > .idlist,
+  .page > .akr {
+    max-width: 1280px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page > .prose {
+    font-size: 16px;
+    line-height: 1.85;
+  }
+
+  /* PARAGRAF PERTAMA */
+  .page > .prose.dark {
+    background: #fff;
+
+    border-left: 5px solid var(--maroon);
+    border-radius: 0 14px 14px 0;
+
+    padding: 22px 26px;
+
+    box-shadow: 0 2px 8px rgba(17,24,39,.05);
+
+    margin-bottom: 18px;
+  }
+
+  /* PARAGRAF KEDUA */
+  .page > .prose:not(.dark) {
+    padding: 0 4px;
+    margin-bottom: 25px;
+  }
+
+  /* JUDUL SECTION */
+  .sec {
+    font-size: 22px;
+
+    margin-top: 38px;
+    margin-bottom: 10px;
+
+    padding-left: 14px;
+  }
+
+  .sub {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  /* DATA IDENTITAS 2 KOLOM */
+  .idlist {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    border-radius: 20px;
+
+    box-shadow:
+      0 3px 14px rgba(17,24,39,.08);
+  }
+
+  .idrow {
+    min-height: 92px;
+
+    padding: 18px 22px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .idrow:nth-child(odd) {
+    border-right: 1px solid #f1f2f6;
+  }
+
+  .idrow small {
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+
+  .idrow span {
+    font-size: 15px;
+  }
+
+  /* AKREDITASI */
+  .akr {
+    border-left: 5px solid var(--gold);
+
+    padding: 22px 24px;
+
+    margin-bottom: 18px;
+
+    box-shadow:
+      0 3px 12px rgba(17,24,39,.07);
+  }
+
+  .akr strong {
+    font-size: 18px;
+  }
+
+  /* KEMBALI KE ATAS */
+  .totop {
+    margin-top: 30px;
+  }
+}
+
+
+/* LAPTOP BESAR */
+@media (min-width: 1200px) {
+
+  .header {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .desktop-nav {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .page {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .photo-hero {
+    height: 510px;
+  }
+}
+
+
+/* MONITOR BESAR */
+@media (min-width: 1600px) {
+
+  .page {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+
 }
