@@ -1,86 +1,489 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Profil Sekolah | SD Negeri Cikuya 3</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Profil Sekolah | SD Negeri Cikuya 3</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="topbar"></i> Kec. Solear, Kab. Tangerang, Prov. Banten</div>
 
-<header class="header">
-  <a href="index.html" class="brand">
-    <span class="logo"><img src="logo.png" alt="Logo SDN Cikuya 3"></span>
-    <span><strong>SD NEGERI CIKUYA 3</strong><small>"Belajar, tumbuh, berprestasi."</small></span>
-  </a>
-  <button class="icon-btn" id="openMenu" aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
-</header>
-
-<div class="overlay" id="overlay"></div>
-<aside class="drawer" id="drawer" aria-hidden="true">
-  <div class="drawer-head">
-    <span class="logo"><img src="logo.png" alt="Logo SDN Cikuya 3"></span>
-    <span><strong>SDN CIKUYA 3</strong><small>"Belajar, tumbuh, berprestasi."</small></span>
-    <button class="close-btn" id="closeMenu" aria-label="Tutup menu"><i class="fa-solid fa-xmark"></i></button>
-  </div>
-  <nav>
-    <a href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
-    <a href="profil.html" class="active"><i class="fa-solid fa-building-columns"></i> Profil Sekolah</a>
-    <a href="index.html#galeri"><i class="fa-regular fa-images"></i> Galeri Kegiatan</a>
-    <a href="index.html#warta"><i class="fa-regular fa-newspaper"></i> Berita &amp; Informasi</a>
-    <a href="index.html#legalitas"><i class="fa-solid fa-award"></i> Akreditasi</a>
-    <a href="index.html#kontak"><i class="fa-solid fa-phone"></i> Kontak</a>
-  </nav>
-  <div class="drawer-foot"><small>STATUS AKREDITASI</small><span class="badge gold">TERAKREDITASI B</span></div>
-</aside>
-
-<main class="page" id="atas">
-  <nav class="crumb" aria-label="Breadcrumb">
-    <a href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
-    <i class="fa-solid fa-chevron-right"></i>
-    <span>Profil Sekolah</span>
-  </nav>
-
-  <h1>Profil SDN Cikuya 3</h1>
-  <p class="lead">Tinjauan faktual satuan pendidikan dasar negeri di Kecamatan Solear, Kabupaten Tangerang berdasarkan data pokok pendidikan dan publikasi ilmiah.</p>
-
-  <figure class="photo-hero">
-    <img src="foto-sekolah.jpg" alt="Gedung SD Negeri Cikuya 3">
-    <figcaption><b>DOKUMENTASI ASLI SITUASI</b><span>Kab. Tangerang</span></figcaption>
-  </figure>
-
-  <p class="prose dark">SD Negeri Cikuya III merupakan lembaga pendidikan dasar formal berstatus negeri yang berkedudukan di lingkungan pedesaan Desa Cikuya, Kecamatan Solear, Kabupaten Tangerang, Provinsi Banten. Keberadaannya mengemban mandat konstitusional dalam mencerdaskan kehidupan bangsa melalui penyediaan akses pembelajaran tingkat dasar bagi anak-anak usia sekolah di kawasan sekitar.</p>
-  <p class="prose">Sebagai entitas pendidikan yang berada di bawah naungan regulasi pemerintah daerah dan kementerian terkait, sekolah ini menjalankan kegiatan belajar mengajar berlandaskan kurikulum nasional. Kehadiran sekolah menjadi simpul vital dalam menunjang program wajib belajar pendidikan dasar sembilan tahun di wilayah Solear.</p>
-
-  <h2 class="sec">Identitas &amp; Ringkasan Data Pokok</h2>
-  <p class="sub">Informasi kelembagaan resmi yang tercatat pada basis data administrasi pendidikan nasional:</p>
-  <div class="idlist">
-    <div class="idrow"><small>Nama Satuan Pendidikan</small><span>SD Negeri Cikuya III</span></div>
-    <div class="idrow"><small>Nomor Pokok Sekolah Nasional (NPSN)</small><span class="red-t strong">20604200</span></div>
-    <div class="idrow"><small>Status Lembaga</small><span><i class="dot"></i>Negeri</span></div>
-    <div class="idrow"><small>Bentuk Pendidikan</small><span>Sekolah Dasar (SD)</span></div>
-    <div class="idrow"><small>Kewenangan / Pembina</small><span>Pemerintah Daerah / Kemendikdasmen RI</span></div>
-    <div class="idrow"><small>Tanggal Registrasi / SK Pendirian</small><span>1 Januari 1983</span></div>
-    <div class="idrow"><small>Status Akreditasi</small><span><b class="pill">Terakreditasi B</b> <em>(BAN-S/M)</em></span></div>
-    <div class="idrow"><small>Alamat Resmi</small><span class="addr-t">Kampung Pala, RT/RW 016/003, Desa Cikuya, Kecamatan Solear, Kabupaten Tangerang, Provinsi Banten (Kode Pos: 15730)</span></div>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    Kec. Solear, Kab. Tangerang, Prov. Banten
   </div>
 
-  <h2 class="sec">Status Akreditasi Lembaga</h2>
-  <div class="akr">
-    <strong>Peringkat Akreditasi B</strong>
-    <small>Kriteria: Memenuhi Standar Nasional Pendidikan</small>
-    <span class="pill blue">Diterbitkan oleh BAN-S/M</span>
-  </div>
-  <p class="prose">Peringkat akreditasi ini merupakan hasil penilaian kelayakan program dan satuan pendidikan yang diselenggarakan secara independen oleh Badan Akreditasi Nasional Sekolah/Madrasah (BAN-S/M) berdasarkan pemenuhan 8 Standar Nasional Pendidikan (SNP).</p>
 
-  <a class="totop" href="#atas"><i class="fa-solid fa-arrow-up"></i> Kembali ke Atas</a>
-</main>
+  <!-- HEADER -->
+  <header class="header">
 
-<script src="script.js"></script>
+    <!-- LOGO -->
+    <a href="index.html" class="brand">
+
+      <span class="logo">
+        <img
+          src="logo.png"
+          alt="Logo SDN Cikuya 3"
+        >
+      </span>
+
+      <span>
+        <strong>SD NEGERI CIKUYA 3</strong>
+        <small>"Belajar, tumbuh, berprestasi."</small>
+      </span>
+
+    </a>
+
+
+    <!-- =========================
+         MENU LAPTOP / DESKTOP
+         ========================= -->
+    <nav class="desktop-nav">
+
+      <a href="index.html">
+        Beranda
+      </a>
+
+      <a href="profil.html" class="active">
+        Profil Sekolah
+      </a>
+
+      <a href="index.html#galeri">
+        Galeri Kegiatan
+      </a>
+
+      <a href="index.html#warta">
+        Berita &amp; Informasi
+      </a>
+
+      <a href="index.html#legalitas">
+        Akreditasi
+      </a>
+
+      <a href="index.html#kontak">
+        Kontak
+      </a>
+
+    </nav>
+
+
+    <!-- =========================
+         TOMBOL MENU HP
+         ========================= -->
+    <button
+      class="icon-btn"
+      id="openMenu"
+      aria-label="Buka menu"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+  </header>
+
+
+  <!-- =========================
+       OVERLAY MENU HP
+       ========================= -->
+  <div
+    class="overlay"
+    id="overlay"
+  ></div>
+
+
+  <!-- =========================
+       DRAWER MENU HP
+       ========================= -->
+  <aside
+    class="drawer"
+    id="drawer"
+    aria-hidden="true"
+  >
+
+    <div class="drawer-head">
+
+      <span class="logo">
+        <img
+          src="logo.png"
+          alt="Logo SDN Cikuya 3"
+        >
+      </span>
+
+      <span>
+        <strong>SDN CIKUYA 3</strong>
+        <small>"Belajar, tumbuh, berprestasi."</small>
+      </span>
+
+      <button
+        class="close-btn"
+        id="closeMenu"
+        aria-label="Tutup menu"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+    </div>
+
+
+    <!-- MENU HP -->
+    <nav>
+
+      <a href="index.html">
+        <i class="fa-solid fa-house"></i>
+        Beranda
+      </a>
+
+      <a
+        href="profil.html"
+        class="active"
+      >
+        <i class="fa-solid fa-building-columns"></i>
+        Profil Sekolah
+      </a>
+
+      <a href="index.html#galeri">
+        <i class="fa-regular fa-images"></i>
+        Galeri Kegiatan
+      </a>
+
+      <a href="index.html#warta">
+        <i class="fa-regular fa-newspaper"></i>
+        Berita &amp; Informasi
+      </a>
+
+      <a href="index.html#legalitas">
+        <i class="fa-solid fa-award"></i>
+        Akreditasi
+      </a>
+
+      <a href="index.html#kontak">
+        <i class="fa-solid fa-phone"></i>
+        Kontak
+      </a>
+
+    </nav>
+
+
+    <!-- FOOTER DRAWER -->
+    <div class="drawer-foot">
+
+      <small>STATUS AKREDITASI</small>
+
+      <span class="badge gold">
+        TERAKREDITASI B
+      </span>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =========================
+       KONTEN PROFIL
+       ========================= -->
+  <main
+    class="page"
+    id="atas"
+  >
+
+
+    <!-- BREADCRUMB -->
+    <nav
+      class="crumb"
+      aria-label="Breadcrumb"
+    >
+
+      <a href="index.html">
+        <i class="fa-solid fa-house"></i>
+        Beranda
+      </a>
+
+      <i class="fa-solid fa-chevron-right"></i>
+
+      <span>
+        Profil Sekolah
+      </span>
+
+    </nav>
+
+
+    <!-- JUDUL -->
+    <h1>
+      Profil SDN Cikuya 3
+    </h1>
+
+
+    <!-- DESKRIPSI -->
+    <p class="lead">
+      Tinjauan faktual satuan pendidikan dasar negeri
+      di Kecamatan Solear, Kabupaten Tangerang berdasarkan
+      data pokok pendidikan dan publikasi ilmiah.
+    </p>
+
+
+    <!-- =========================
+         FOTO SEKOLAH
+         ========================= -->
+    <figure class="photo-hero">
+
+      <img
+        src="foto-sekolah.jpg"
+        alt="Gedung SD Negeri Cikuya 3"
+      >
+
+      <figcaption>
+
+        <b>
+          DOKUMENTASI ASLI SITUASI
+        </b>
+
+        <span>
+          Kab. Tangerang
+        </span>
+
+      </figcaption>
+
+    </figure>
+
+
+    <!-- =========================
+         DESKRIPSI SEKOLAH
+         ========================= -->
+    <p class="prose dark">
+
+      SD Negeri Cikuya III merupakan lembaga pendidikan
+      dasar formal berstatus negeri yang berkedudukan
+      di lingkungan pedesaan Desa Cikuya, Kecamatan Solear,
+      Kabupaten Tangerang, Provinsi Banten.
+
+      Keberadaannya mengemban mandat konstitusional
+      dalam mencerdaskan kehidupan bangsa melalui
+      penyediaan akses pembelajaran tingkat dasar
+      bagi anak-anak usia sekolah di kawasan sekitar.
+
+    </p>
+
+
+    <p class="prose">
+
+      Sebagai entitas pendidikan yang berada di bawah
+      naungan regulasi pemerintah daerah dan kementerian
+      terkait, sekolah ini menjalankan kegiatan belajar
+      mengajar berlandaskan kurikulum nasional.
+
+      Kehadiran sekolah menjadi simpul vital dalam
+      menunjang program wajib belajar pendidikan dasar
+      sembilan tahun di wilayah Solear.
+
+    </p>
+
+
+    <!-- =========================
+         IDENTITAS SEKOLAH
+         ========================= -->
+    <h2 class="sec">
+      Identitas &amp; Ringkasan Data Pokok
+    </h2>
+
+
+    <p class="sub">
+      Informasi kelembagaan resmi yang tercatat pada
+      basis data administrasi pendidikan nasional:
+    </p>
+
+
+    <div class="idlist">
+
+      <div class="idrow">
+
+        <small>
+          Nama Satuan Pendidikan
+        </small>
+
+        <span>
+          SD Negeri Cikuya III
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Nomor Pokok Sekolah Nasional (NPSN)
+        </small>
+
+        <span class="red-t strong">
+          20604200
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Status Lembaga
+        </small>
+
+        <span>
+          <i class="dot"></i>
+          Negeri
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Bentuk Pendidikan
+        </small>
+
+        <span>
+          Sekolah Dasar (SD)
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Kewenangan / Pembina
+        </small>
+
+        <span>
+          Pemerintah Daerah / Kemendikdasmen RI
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Tanggal Registrasi / SK Pendirian
+        </small>
+
+        <span>
+          1 Januari 1983
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Status Akreditasi
+        </small>
+
+        <span>
+
+          <b class="pill">
+            Terakreditasi B
+          </b>
+
+          <em>
+            (BAN-S/M)
+          </em>
+
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Alamat Resmi
+        </small>
+
+        <span class="addr-t">
+
+          Kampung Pala, RT/RW 016/003,
+          Desa Cikuya, Kecamatan Solear,
+          Kabupaten Tangerang, Provinsi Banten
+          (Kode Pos: 15730)
+
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         AKREDITASI
+         ========================= -->
+    <h2 class="sec">
+      Status Akreditasi Lembaga
+    </h2>
+
+
+    <div class="akr">
+
+      <strong>
+        Peringkat Akreditasi B
+      </strong>
+
+      <small>
+        Kriteria: Memenuhi Standar Nasional Pendidikan
+      </small>
+
+      <span class="pill blue">
+        Diterbitkan oleh BAN-S/M
+      </span>
+
+    </div>
+
+
+    <p class="prose">
+
+      Peringkat akreditasi ini merupakan hasil penilaian
+      kelayakan program dan satuan pendidikan yang
+      diselenggarakan secara independen oleh Badan
+      Akreditasi Nasional Sekolah/Madrasah (BAN-S/M)
+      berdasarkan pemenuhan 8 Standar Nasional
+      Pendidikan (SNP).
+
+    </p>
+
+
+    <!-- KEMBALI KE ATAS -->
+    <a
+      class="totop"
+      href="#atas"
+    >
+
+      <i class="fa-solid fa-arrow-up"></i>
+
+      Kembali ke Atas
+
+    </a>
+
+  </main>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
+
 </body>
 </html>
