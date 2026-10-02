@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Siswa - SD Negeri Cikuya 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<!-- Library XLSX untuk Eksport Excel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body style="background:#f4f6f9; padding: 20px;">
+
+<div style="max-width: 900px; margin: 0 auto;">
+  <a href="index.html" style="text-decoration:none; color: #800000; font-weight:600; display:inline-block; margin-bottom: 15px;">
+    <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+  </a>
+
+  <div class="card" style="background:#fff; padding:25px; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:2px solid #eee; padding-bottom:15px; margin-bottom:15px;">
+      <div>
+        <h2 style="margin:0; color:#333;">Data Mentah Siswa SDN Cikuya 3</h2>
+        <p style="margin:5px 0 0; color:#666; font-size:14px;">Total Siswa: 445 Anak (244 Laki-laki / 201 Perempuan)</p>
+      </div>
+      
+      <!-- Tombol Download Excel -->
+      <button onclick="exportToExcel('tabelSiswa', 'Data_Siswa_SDN_Cikuya_3')" style="background:#1d6f42; color:#fff; border:none; padding:10px 16px; border-radius:6px; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:8px;">
+        <i class="fa-solid fa-file-excel"></i> Export / Download Excel
+      </button>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table id="tabelSiswa" style="width:100%; border-collapse:collapse; text-align:left; font-size:14px;">
+        <thead>
+          <tr style="background:#f8f9fa; border-bottom:2px solid #ddd; color:#800000;">
+            <th style="padding:10px;">No</th>
+            <th style="padding:10px;">NISN</th>
+            <th style="padding:10px;">Nama Siswa</th>
+            <th style="padding:10px;">Kelas</th>
+            <th style="padding:10px;">Jenis Kelamin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">1</td>
+            <td style="padding:10px;">0123456781</td>
+            <td style="padding:10px;">Ahmad Fauzi</td>
+            <td style="padding:10px;">1A</td>
+            <td style="padding:10px;">Laki-laki</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">2</td>
+            <td style="padding:10px;">0123456782</td>
+            <td style="padding:10px;">Siti Nurhaliza</td>
+            <td style="padding:10px;">1A</td>
+            <td style="padding:10px;">Perempuan</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">3</td>
+            <td style="padding:10px;">0123456783</td>
+            <td style="padding:10px;">Budi Santoso</td>
+            <td style="padding:10px;">2B</td>
+            <td style="padding:10px;">Laki-laki</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">4</td>
+            <td style="padding:10px;">0123456784</td>
+            <td style="padding:10px;">Dewi Lestari</td>
+            <td style="padding:10px;">3A</td>
+            <td style="padding:10px;">Perempuan</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">5</td>
+            <td style="padding:10px;">0123456785</td>
+            <td style="padding:10px;">Eko Prasetyo</td>
+            <td style="padding:10px;">4B</td>
+            <td style="padding:10px;">Laki-laki</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+function exportToExcel(tableID, filename = ''){
+    let table = document.getElementById(tableID);
+    let wb = XLSX.utils.table_to_book(table, {sheet: "Data Siswa"});
+    XLSX.writeFile(wb, filename ? filename + '.xlsx' : 'Data_Siswa.xlsx');
+}
+</script>
+
+</body>
+</html>
