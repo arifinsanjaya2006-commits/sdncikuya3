@@ -182,3 +182,54 @@ small{font-size:11px;color:var(--mute);display:block}
   .page{padding:24px}
   .idlist{display:grid;grid-template-columns:1fr 1fr}
 }
+
+/* ===== Detail Ekskul & Galeri ===== */
+#ekskul .mini,#galeri .gal{cursor:pointer;transition:transform .15s,box-shadow .15s}
+#ekskul .mini:hover,#galeri .gal:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(17,24,39,.14)}
+#galeri .gal:has(a){cursor:default}
+.hint-tap{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mute);margin:-4px 0 10px}
+.hint-tap i{color:var(--maroon)}
+body.no-scroll{overflow:hidden}
+.detail{position:fixed;inset:0;z-index:70;background:rgba(15,23,42,.78);display:none;align-items:flex-end;justify-content:center}
+.detail.show{display:flex}
+.detail-box{background:#fff;width:100%;max-width:580px;max-height:92vh;overflow-y:auto;border-radius:24px 24px 0 0;position:relative;animation:up .25s}
+.detail .close-btn{position:absolute;top:12px;right:12px;z-index:2;background:rgba(255,255,255,.95);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.detail-media{height:240px;background:linear-gradient(135deg,var(--maroon),var(--maroon-d));display:grid;place-items:center;color:rgba(255,255,255,.5);font-size:48px}
+.detail-media img{width:100%;height:100%;object-fit:cover;display:block}
+.detail-body{padding:20px 20px 26px}
+.detail-body .badge{margin-bottom:8px}
+.detail-body h3{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--maroon);margin-bottom:8px}
+.detail-body p{font-size:14px;line-height:1.7;color:#374151}
+.detail-meta{display:grid;gap:8px;margin-top:16px}
+.detail-meta div{display:flex;gap:12px;align-items:center;background:var(--bg);border-radius:12px;padding:10px 12px}
+.detail-meta i{color:var(--maroon);width:18px;text-align:center}
+.detail-meta small{font-weight:700;margin:0}
+.detail-meta b{font-size:13px}
+@media (min-width:700px){
+  .detail{align-items:center;padding:24px}
+  .detail-box{border-radius:24px}
+  .detail-media{height:340px}
+}
+
+/* ===== Navigasi antar halaman ===== */
+.view{display:none}
+.view.active{display:block}
+.page-top{background:linear-gradient(135deg,var(--maroon),var(--maroon-d));color:#fff;padding:26px 18px 46px}
+.page-top h1{font-size:26px;font-weight:800;letter-spacing:-.03em}
+.page-top p{font-size:13px;opacity:.9;margin-top:4px}
+.more{font-size:11px;font-weight:700;color:var(--maroon)}
+.more i{font-size:9px;margin-left:2px}
+.text-card p{font-size:14px;line-height:1.7;margin-bottom:8px;color:#374151}
+.text-card p:last-child{margin-bottom:0}
+.text-card ul{padding-left:18px}
+.text-card li{font-size:14px;line-height:1.7;margin-bottom:4px;color:#374151}
+.contact-card{display:flex;gap:12px;align-items:center;color:inherit}
+.contact-card span:nth-child(2){flex:1}
+.contact-card b{font-size:14px;display:block}
+.cta{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta b{font-size:14px;display:block}
+.cta .btn{padding:10px 18px;box-shadow:none}
+#galeriHome .gal,#galeriHome .gal-item{cursor:pointer}
+@media (min-width:992px){.page-top{padding:40px 24px 56px}}
+
+.back{display:inline-block;color:var(--maroon);font-weight:600;font-size:13px;margin:6px 0 12px}
