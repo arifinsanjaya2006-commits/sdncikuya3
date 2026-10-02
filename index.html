@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="topbar"> Kec. Solear, Kab. Tangerang, Prov. Banten</div>
+<div class="topbar">Kec. Solear, Kab. Tangerang, Prov. Banten</div>
 
 <header class="header">
   <a href="#beranda" class="brand">
@@ -19,36 +19,17 @@
     <span><strong>SD NEGERI CIKUYA 3</strong><small>"Belajar, tumbuh, berprestasi."</small></span>
   </a>
   <nav class="desktop-nav">
+    <a href="#beranda" class="active">Beranda</a>
+    <a href="profil.html">Profil Sekolah</a>
+    <a href="#galeri">Galeri Kegiatan</a>
+    <a href="#warta">Berita &amp; Informasi</a>
+    <a href="#legalitas">Akreditasi</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
 
-  <a href="#beranda" class="active">
-    Beranda
-  </a>
-
-  <a href="profil.html">
-    Profil Sekolah
-  </a>
-
-  <a href="#galeri">
-    Galeri Kegiatan
-  </a>
-
-  <a href="#warta">
-    Berita &amp; Informasi
-  </a>
-
-  <a href="#legalitas">
-    Akreditasi
-  </a>
-
-  <a href="index.html#kontak">
-    Kontak
-  </a>
-
-</nav>
-
-<button class="icon-btn" id="openMenu" aria-label="Buka menu">
-  <i class="fa-solid fa-bars"></i>
-</button>
+  <button class="icon-btn" id="openMenu" aria-label="Buka menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
 </header>
 
 <div class="overlay" id="overlay"></div>
@@ -87,15 +68,29 @@
     </section>
 
     <section id="data">
-      <h2 class="sec">Data Pokok Pendidikan</h2>
-      <div class="grid2">
-        <div class="card stat"><small>Total Siswa</small><b>445 <em>Anak</em></b><span class="foot">244 L &nbsp;•&nbsp; 201 P</span></div>
-        <div class="card stat"><small>Guru &amp; Tendik</small><b>14 <em>Pendidik</em></b><span class="foot">92.8% Sarjana S1/S2</span></div>
-        <div class="card stat"><small>Rombel</small><b>13 <em>Kelas</em></b><span class="foot">Rasio 35 Siswa/Rbl</span></div>
-        <div class="card stat"><small>Status Mutu</small><b class="gold-t">Grade B</b><span class="foot">BAN-S/M Banten</span></div>
+      <h2 class="sec">Data Pokok Pendidikan <small>Klik kartu untuk lihat data lengkap</small></h2>
+
+      <div class="stats">
+        <a href="siswa.html" class="card stat">
+          <small>Total Siswa</small>
+          <b>445 <em>Anak</em></b>
+          <span class="foot">244 L &nbsp;•&nbsp; 201 P</span>
+        </a>
+
+        <a href="guru.html" class="card stat">
+          <small>Guru &amp; Tendik</small>
+          <b>14 <em>Pendidik</em></b>
+          <span class="foot">92.8% Sarjana S1/S2</span>
+        </a>
+
+        <div class="card stat" data-modal="mutu" role="button" tabindex="0">
+          <small>Status Mutu</small>
+          <b class="gold-t">Grade B</b>
+          <span class="foot">BAN-S/M Banten</span>
+        </div>
       </div>
 
-      <div class="card" id="legalitas">
+      <div class="card mt" id="legalitas">
         <div class="legal-head"><span class="tile red"><i class="fa-solid fa-shield-halved"></i></span>
           <div><strong>Legalitas Satuan Pendidikan</strong><small>Kementerian Pendidikan Dasar dan Menengah RI</small></div><span class="badge gold">NEGERI</span></div>
         <div class="grid2 tight">
@@ -114,7 +109,7 @@
         <button class="quick" data-modal="visi"><span class="tile blue"><i class="fa-solid fa-flag"></i></span><b>Visi &amp; Misi</b><small>Tujuan Sekolah</small></button>
         <button class="quick" data-modal="sejarah"><span class="tile blue"><i class="fa-solid fa-landmark"></i></span><b>Sejarah</b><small>Jejak Langkah</small></button>
         <button class="quick" data-modal="pendidik"><span class="tile blue"><i class="fa-solid fa-people-group"></i></span><b>Pendidik</b><small>14 Tenaga Ahli</small></button>
-        <button class="quick" data-modal="ekskul"><span class="tile blue"><i class="fa-solid fa-person-running"></i></span><b>Ekskul</b><small>5 Cabang Bakat</small></button>
+        <button class="quick" data-modal="ekskul"><span class="tile blue"><i class="fa-solid fa-person-running"></i></span><b>Ekskul</b><small>4 Cabang Bakat</small></button>
         <button class="quick" data-modal="prestasi"><span class="tile gold"><i class="fa-solid fa-trophy"></i></span><b>Prestasi</b><small>Tingkat Kec/Kab</small></button>
         <button class="quick" data-modal="kontak"><span class="tile blue"><i class="fa-solid fa-phone-volume"></i></span><b>Kontak</b><small>Info &amp; PPDB</small></button>
       </div>
@@ -131,22 +126,24 @@
         <div><span class="badge gold">Kurikulum Merdeka</span><h3>Penerapan Projek Penguatan Profil Pelajar Pancasila (P5)</h3><small><i class="fa-regular fa-calendar"></i> 12 Oktober 2026</small></div></article>
       <article class="card news"><div class="thumb g2"><i class="fa-solid fa-trophy"></i></div>
         <div><span class="badge gold">Prestasi</span><h3>Juara 1 Lomba Cerdas Cermat &amp; Pramuka Tingkat Solear</h3><small><i class="fa-regular fa-calendar"></i> 28 September 2026</small></div></article>
+      <div id="wartaExtra"></div>
     </section>
 
     <section id="ekskul">
-      <h2 class="sec">Ekstrakurikuler Pilihan <small>Minat &amp; Bakat</small></h2>
+      <h2 class="sec">Ekstrakurikuler Pilihan <small>Geser untuk lihat lainnya</small></h2>
       <div class="scroller">
-        <div class="card mini"><img class="mini-photo" src="ekskul-pramuka.jfif" alt="Pramuka Inti"><b>Pramuka Inti</b><small>Wajib Kelas 3-6</small></div>
-        <div class="card mini"><img class="mini-photo" src="ekskul-marawis.jpg" alt="Seni Marawis"><b>Seni Marawis</b><small>Pentas Religi</small></div>
-        <div class="card mini"><img class="mini-photo" src="ekskul-futsal.jfif" alt="Futsal"><b>Futsal</b><small>Olahraga</small></div>
+        <div class="card mini"><img class="mini-photo" src="ekskul-pramuka.jfif" alt="Pramuka Inti" loading="lazy"><b>Pramuka Inti</b><small>Wajib Kelas 3-6</small></div>
+        <div class="card mini"><img class="mini-photo" src="ekskul-marawis.jpg" alt="Seni Marawis" loading="lazy"><b>Seni Marawis</b><small>Pentas Religi</small></div>
+        <div class="card mini"><img class="mini-photo" src="ekskul-futsal.jfif" alt="Futsal" loading="lazy"><b>Futsal</b><small>Olahraga</small></div>
+        <div class="card mini"><img class="mini-photo" src="ekskul-tari.jpg" alt="Seni Tari" loading="lazy"><b>Seni Tari</b><small>Tari Tradisional</small></div>
       </div>
     </section>
 
     <section id="galeri">
       <h2 class="sec">Dokumentasi &amp; Galeri <small>Aktivitas Siswa</small></h2>
-      <div class="grid2">
-        <figure class="card gal"><img class="photo" src="upacara-bendera.jfif" alt="Upacara Bendera"><b>Upacara Bendera</b><small>Pembiasaan Cinta Tanah Air</small></figure>
-<figure class="card gal"><img class="photo" src="literasi-pagi.jfif" alt="Literasi Pagi"><b>Literasi Pagi</b><small>Gemar Membaca Buku</small></figure>
+      <div class="grid2 gal-grid">
+        <figure class="card gal"><img class="photo" src="upacara-bendera.jfif" alt="Upacara Bendera" loading="lazy"><b>Upacara Bendera</b><small>Pembiasaan Cinta Tanah Air</small></figure>
+        <figure class="card gal"><img class="photo" src="literasi-pagi.jfif" alt="Literasi Pagi" loading="lazy"><b>Literasi Pagi</b><small>Gemar Membaca Buku</small></figure>
       </div>
       <div class="card prestasi"><strong><i class="fa-solid fa-trophy"></i> Pencapaian Siswa SDN Cikuya 3</strong>
         <div class="row"><span class="num">1</span> Lomba Cerdas Cermat Solear <b class="red-t">Tingkat Kec.</b></div>
@@ -176,11 +173,11 @@
   <p>Mewujudkan generasi muda Indonesia yang berakhlak mulia, berprestasi, cerdas, berkarakter Profil Pelajar Pancasila, dan cinta tanah air.</p>
   <h4>ALAMAT LENGKAP</h4><p>Kp. Pala, Desa Cikuya, Kec. Solear, Kab. Tangerang, Prov. Banten</p>
   <h4>KONTAK RESMI</h4><p><i class="fa-solid fa-phone"></i> 0813-1717-8510<br><i class="fa-regular fa-envelope"></i> sdncikuya30@gmail.com</p>
- <div class="social">
-  <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-  <a href="https://www.instagram.com/sdncikuya3" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-  <a href="https://youtube.com/@sdncikuya03" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-</div>
+  <div class="social">
+    <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/sdncikuya3" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://youtube.com/@sdncikuya03" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+  </div>
   <div class="chips"><span class="chip dark">Akreditasi B</span><span class="chip dark">Kurikulum Merdeka</span></div>
   <small class="copy">© 2026/2027 SD Negeri Cikuya 3. Hak Cipta Dilindungi Undang-Undang.</small>
 </footer>
