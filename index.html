@@ -8,236 +8,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="icon" type="image/png" href="logo.png">
-<style>
-:root{--maroon:#8b0000;--maroon-d:#5f0010;--maroon-s:#fdecee;--gold:#b7791f;--gold-s:#fef3c7;--blue:#4f46e5;--blue-s:#e0e7ff;--ink:#111827;--mute:#6b7280;--bg:#f5f6fb;--card:#fff;--line:#e5e7eb;--navy:#1e293b}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{overflow-x:hidden}
-html{scroll-behavior:smooth;scroll-padding-top:120px}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);max-width:480px;margin:0 auto;line-height:1.5;font-size:14px}
-a{color:inherit;text-decoration:none}
-button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
-small{font-size:11px;color:var(--mute);display:block}
-:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-
-.topbar{background:var(--maroon);color:#fff;font-size:10px;padding:4px 14px;text-align:center}
-.header{position:sticky;top:0;z-index:30;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;box-shadow:0 1px 6px rgba(0,0,0,.08)}
-.brand{display:flex;gap:10px;align-items:center}
-.brand strong{display:block;color:var(--maroon);font-size:15px;font-weight:800;line-height:1.1}
-.logo{width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
-.logo img{width:100%;height:100%;object-fit:cover}
-.icon-btn{width:38px;height:38px;border-radius:12px;background:var(--bg);font-size:16px}
-
-.overlay{position:fixed;inset:0;background:rgba(15,23,42,.65);opacity:0;pointer-events:none;transition:opacity .25s;z-index:40}
-.overlay.show{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;bottom:0;left:0;width:78%;max-width:300px;background:#fff;z-index:50;transform:translateX(-100%);transition:transform .28s;display:flex;flex-direction:column}
-.drawer.open{transform:none}
-.drawer-head{background:var(--maroon);color:#fff;padding:16px;display:flex;gap:10px;align-items:center;position:relative}
-.drawer-head small{color:#fbd5d5}
-.drawer-head .logo{background:#fff;color:var(--maroon)}
-.close-btn{margin-left:auto;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff}
-.close-btn.dark{background:var(--bg);color:var(--ink);position:absolute;top:12px;right:12px}
-.drawer nav{flex:1;padding:8px 0}
-.drawer nav a{display:flex;gap:12px;align-items:center;padding:14px 20px;font-weight:600;font-size:13px}
-.drawer nav a i{color:var(--maroon);width:18px}
-.drawer nav a:hover{background:var(--maroon-s)}
-.drawer-foot{background:var(--blue-s);padding:14px 20px}
-
-.hero{min-height:340px;display:flex;align-items:flex-end;color:#fff;background:linear-gradient(180deg,rgba(95,0,16,.3),rgba(60,0,10,.92)),url("foto-sekolah.jpg") center/cover no-repeat}
-.hero-body{padding:24px 18px 46px}
-.hero h1{font-size:34px;font-weight:800;letter-spacing:-.03em;margin:10px 0 6px}
-.hero p{font-size:14px;opacity:.92;margin-bottom:16px}
-.chips{display:flex;gap:6px;flex-wrap:wrap}
-.chip{background:rgba(255,255,255,.92);color:var(--ink);font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px}
-.chip.red{color:var(--maroon)}
-.chip.dark{background:rgba(255,255,255,.12);color:#fff}
-.btn{display:inline-block;background:var(--maroon);color:#fff;font-weight:700;padding:12px 20px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.3)}
-.btn:hover{background:#a10012}
-
-.sheet{background:var(--bg);border-radius:24px 24px 0 0;margin-top:-24px;position:relative;padding:14px 14px 20px}
-.card{background:var(--card);border-radius:18px;box-shadow:0 1px 4px rgba(17,24,39,.07);padding:14px}
-.card.mt{margin-top:15px}
-.sec{display:flex;justify-content:space-between;align-items:baseline;font-size:17px;font-weight:800;margin:26px 0 12px;padding-left:10px;border-left:4px solid var(--maroon);line-height:1.1}
-.sec small{font-size:10px;font-weight:600}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.grid2.tight{margin:12px 0 10px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.red-t{color:var(--maroon)}.gold-t{color:var(--gold)}
-.badge{display:inline-block;font-size:10px;font-weight:800;padding:3px 9px;border-radius:99px}
-.badge.gold{background:var(--gold-s);color:#92400e}
-.tile{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none}
-.tile.blue{background:var(--blue-s);color:var(--blue)}.tile.red{background:var(--maroon);color:#fff}.tile.gold{background:var(--gold-s);color:var(--gold)}
-.tile.round{border-radius:50%}
-.label{font-weight:800;color:var(--maroon);margin-bottom:2px}
-
-.welcome{display:flex;gap:12px}
-.welcome p{font-size:13px}
-
-/* Data pokok: selalu 3 kolom (HP & laptop) */
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
-.stat{display:block;color:inherit;cursor:pointer;transition:transform .15s}
-.stat:active{transform:scale(.97)}
-.stat b{display:block;font-size:26px;font-weight:800;margin:4px 0 8px}
-.stat em{font-size:11px;font-weight:500;color:var(--mute);font-style:normal}
-.stat .foot{display:block;background:var(--bg);border-radius:8px;padding:5px 8px;font-size:10px;text-align:center;color:var(--mute)}
-.legal-head{display:flex;gap:10px;align-items:center}
-.legal-head div{flex:1}.legal-head strong{font-size:13px;display:block}
-.cell{background:var(--blue-s);border-radius:12px;padding:10px}
-.cell b{font-size:13px}
-.note{background:var(--maroon-s);border-radius:12px;padding:10px 12px;font-size:11px;font-weight:600;color:var(--maroon)}
-
-.quick{background:#fff;border-radius:16px;padding:14px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;box-shadow:0 1px 4px rgba(17,24,39,.07);transition:transform .15s}
-.quick:active{transform:scale(.96)}
-.quick b{font-size:12px}.quick small{font-size:10px}
-
-.announce{background:var(--maroon);color:#fff;border-radius:18px;padding:14px;margin-bottom:10px}
-.announce small{display:inline;color:#fbd5d5}
-.announce h3{font-size:15px;margin:6px 0 4px}.announce p{font-size:11px;opacity:.9}
-.news{display:flex;gap:12px;margin-bottom:10px;align-items:center}
-.news h3{font-size:13px;margin:4px 0}
-.thumb,.photo{display:grid;place-items:center;color:#fff;font-size:26px;border-radius:12px}
-.thumb{width:84px;height:84px;flex:none}
-.g1{background:linear-gradient(135deg,#16a34a,#065f46)}.g2{background:linear-gradient(135deg,#dc2626,#7f1d1d)}
-.g3{background:linear-gradient(135deg,#ef4444,#7f1d1d)}.g4{background:linear-gradient(135deg,#f59e0b,#78350f)}
-
-/* Ekskul: memanjang ke samping & bisa digeser */
-.scroller{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px}
-.scroller .mini{flex:0 0 42%;scroll-snap-align:start}
-.scroller::-webkit-scrollbar{height:6px}
-.scroller::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:99px}
-.mini{text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
-.mini-photo{width:100%;height:90px;border-radius:14px 14px 0 0;object-fit:cover;display:block;margin:0 0 6px}
-.mini b{font-size:12px}
-.gal{padding:0;overflow:hidden}
-.gal .photo{height:110px;border-radius:0;width:100%;object-fit:cover;display:block}
-.gal b,.gal small{padding:0 10px}.gal b{display:block;margin-top:8px;font-size:12px}.gal small{padding-bottom:10px}
-.prestasi{background:var(--gold-s)}
-.prestasi strong{display:block;margin-bottom:10px;font-size:13px}
-.row{background:#fff;border-radius:12px;padding:10px;margin-bottom:6px;display:flex;gap:10px;align-items:center;font-size:12px}
-.row b{margin-left:auto;font-size:11px}
-.num{width:24px;height:24px;border-radius:50%;background:var(--gold-s);color:var(--gold);display:grid;place-items:center;font-weight:800;font-size:11px;flex:none}
-
-.map{height:220px;border-radius:14px;position:relative;margin-bottom:10px;overflow:hidden}
-.map iframe{width:100%;height:100%;display:block}
-.coord{position:absolute;left:8px;right:8px;bottom:8px;background:var(--navy);color:#fff;border-radius:10px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;font-size:11px}
-.coord a{background:var(--maroon);padding:4px 10px;border-radius:8px;font-weight:700}
-.addr{background:var(--bg);color:var(--ink);font-weight:500;font-size:13px;margin-bottom:8px}
-.addr small{font-weight:700;margin-bottom:2px}
-.contact{display:flex;gap:12px;align-items:center;background:var(--bg);border-radius:14px;padding:10px;margin-bottom:8px}
-.contact span:nth-child(2){flex:1}.contact b{font-size:14px;word-break:break-all}
-.tagline{margin-top:12px;text-align:center}.tagline small{margin-top:4px;font-size:10px}
-
-.footer{background:var(--navy);color:#cbd5e1;padding:26px 18px 20px}
-.footer .brand strong{color:#fff}.footer small{color:#94a3b8}
-.footer p{margin:12px 0;font-size:13px}
-.footer h4{font-size:11px;color:#fbbf24;margin-top:16px}
-.social{display:flex;gap:8px;margin:14px 0}
-.social a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center}
-.copy{text-align:center;margin-top:20px;font-size:10px}
-
-.modal{position:fixed;inset:0;z-index:60;background:rgba(15,23,42,.7);display:none;align-items:flex-end;justify-content:center}
-.modal.show{display:flex}
-.modal-box{background:#fff;width:100%;max-width:480px;max-height:85vh;overflow-y:auto;border-radius:24px 24px 0 0;padding:24px 20px 28px;position:relative;animation:up .25s}
-.modal-box h3{color:var(--maroon);font-size:18px;margin-bottom:10px;padding-right:40px}
-.modal-box p,.modal-box li{font-size:13px;margin-bottom:8px}
-.modal-box ul{padding-left:18px}
-@keyframes up{from{transform:translateY(40px);opacity:0}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
-
-/* ===== Halaman Profil ===== */
-.drawer nav a.active{background:var(--maroon-s);color:var(--maroon)}
-.page{padding:16px 18px 40px;background:var(--bg)}
-.crumb{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mute);margin-bottom:14px}
-.crumb i{font-size:9px}.crumb span{color:var(--maroon);font-weight:700}
-.page h1{font-size:28px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
-.lead{font-size:15px;color:#6b4a4f;margin-bottom:18px}
-.photo-hero{position:relative;height:200px;border-radius:18px;overflow:hidden;margin-bottom:22px;box-shadow:0 4px 14px rgba(0,0,0,.18);background:linear-gradient(180deg,#7dd3fc,#86efac 60%,#166534)}
-.photo-hero img{width:100%;height:100%;object-fit:cover;display:block}
-.photo-hero figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;padding:26px 14px 10px;color:#fff;font-size:11px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
-.prose{font-size:15px;color:#6b4a4f;margin-bottom:14px;line-height:1.7}
-.prose.dark{color:var(--ink)}
-.sub{font-size:12px;color:var(--mute);margin:-4px 0 12px}
-.idlist{background:#fff;border-radius:18px;box-shadow:0 1px 4px rgba(17,24,39,.07);overflow:hidden}
-.idrow{padding:12px 14px;border-bottom:1px solid #f1f2f6}
-.idrow:last-child{border:0}
-.idrow small{color:#6b2a33;font-weight:700;margin-bottom:2px}
-.idrow span{font-size:14px}
-.idrow .strong{font-weight:800}
-.idrow em{font-size:11px;color:var(--mute);font-style:normal}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--maroon);margin-right:6px}
-.pill{display:inline-block;background:#fed7aa;color:#7c2d12;font-size:12px;font-weight:800;padding:2px 10px;border-radius:99px}
-.pill.blue{background:var(--blue-s);color:#3730a3;font-size:11px;font-weight:600;margin-top:8px}
-.addr-t{line-height:1.7}
-.akr{background:#fff;border-radius:18px;padding:14px;box-shadow:0 1px 4px rgba(17,24,39,.07);margin-bottom:14px}
-.akr strong{display:block;font-size:14px}
-.totop{display:table;margin:24px auto 0;background:#fff;border-radius:99px;padding:8px 16px;font-size:11px;font-weight:600;box-shadow:0 1px 4px rgba(17,24,39,.1)}
-
-/* ===== Tampilan laptop / komputer ===== */
-.desktop-nav{display:none}
-
-@media (min-width:992px){
-  body{max-width:100%}
-  .header .icon-btn{display:none}
-  .desktop-nav{display:flex;align-items:center;gap:8px}
-  .desktop-nav a{color:var(--maroon);font-size:14px;font-weight:700;padding:8px 14px;border-radius:8px;white-space:nowrap;transition:background .2s}
-  .desktop-nav a:hover,.desktop-nav a.active{background:var(--maroon-s)}
-  .header{padding:14px 24px}
-  .hero-body{padding:60px 24px}
-  .sheet{padding:24px}
-  .grid2{grid-template-columns:repeat(4,1fr)}
-  .grid2.gal-grid{grid-template-columns:repeat(2,1fr)}
-  .grid3{grid-template-columns:repeat(6,1fr)}
-  .scroller .mini{flex:0 0 calc(33.333% - 7px)}
-  .mini-photo{height:140px}
-  .gal .photo{height:180px}
-  .photo-hero{height:380px}
-  .page{padding:24px}
-  .idlist{display:grid;grid-template-columns:1fr 1fr}
-}
-
-/* ===== Detail Ekskul & Galeri ===== */
-#ekskul .mini,#galeri .gal{cursor:pointer;transition:transform .15s,box-shadow .15s}
-#ekskul .mini:hover,#galeri .gal:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(17,24,39,.14)}
-#galeri .gal:has(a){cursor:default}
-.hint-tap{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mute);margin:-4px 0 10px}
-.hint-tap i{color:var(--maroon)}
-body.no-scroll{overflow:hidden}
-.detail{position:fixed;inset:0;z-index:70;background:rgba(15,23,42,.78);display:none;align-items:flex-end;justify-content:center}
-.detail.show{display:flex}
-.detail-box{background:#fff;width:100%;max-width:580px;max-height:92vh;overflow-y:auto;border-radius:24px 24px 0 0;position:relative;animation:up .25s}
-.detail .close-btn{position:absolute;top:12px;right:12px;z-index:2;background:rgba(255,255,255,.95);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.25)}
-.detail-media{height:240px;background:linear-gradient(135deg,var(--maroon),var(--maroon-d));display:grid;place-items:center;color:rgba(255,255,255,.5);font-size:48px}
-.detail-media img{width:100%;height:100%;object-fit:cover;display:block}
-.detail-body{padding:20px 20px 26px}
-.detail-body .badge{margin-bottom:8px}
-.detail-body h3{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--maroon);margin-bottom:8px}
-.detail-body p{font-size:14px;line-height:1.7;color:#374151}
-.detail-meta{display:grid;gap:8px;margin-top:16px}
-.detail-meta div{display:flex;gap:12px;align-items:center;background:var(--bg);border-radius:12px;padding:10px 12px}
-.detail-meta i{color:var(--maroon);width:18px;text-align:center}
-.detail-meta small{font-weight:700;margin:0}
-.detail-meta b{font-size:13px}
-@media (min-width:700px){
-  .detail{align-items:center;padding:24px}
-  .detail-box{border-radius:24px}
-  .detail-media{height:340px}
-}
-</style>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
 <div class="topbar">Kec. Solear, Kab. Tangerang, Prov. Banten</div>
 
 <header class="header">
-  <a href="#beranda" class="brand">
+  <a href="#/beranda" class="brand">
     <span class="logo"><img src="logo.png" alt="Logo SDN Cikuya 3"></span>
     <span><strong>SD NEGERI CIKUYA 3</strong><small>"Belajar, tumbuh, berprestasi."</small></span>
   </a>
   <nav class="desktop-nav">
-    <a href="#beranda" class="active">Beranda</a>
-    <a href="profil.html">Profil Sekolah</a>
-    <a href="#galeri">Galeri Kegiatan</a>
-    <a href="#warta">Berita &amp; Informasi</a>
-    <a href="#legalitas">Akreditasi</a>
-    <a href="#kontak">Kontak</a>
+    <a href="#/beranda">Beranda</a>
+    <a href="#/profil">Profil Sekolah</a>
+    <a href="#/galeri">Galeri Kegiatan</a>
+    <a href="#/berita">Berita &amp; Informasi</a>
+    <a href="#/akreditasi">Akreditasi</a>
+    <a href="#/kontak">Kontak</a>
   </nav>
 
   <button class="icon-btn" id="openMenu" aria-label="Buka menu">
@@ -253,27 +41,27 @@ body.no-scroll{overflow:hidden}
     <button class="close-btn" id="closeMenu" aria-label="Tutup menu"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <nav>
-    <a href="#beranda"><i class="fa-solid fa-house"></i> Beranda</a>
-    <a href="profil.html"><i class="fa-solid fa-building-columns"></i> Profil Sekolah</a>
-    <a href="#galeri"><i class="fa-regular fa-images"></i> Galeri Kegiatan</a>
-    <a href="#warta"><i class="fa-regular fa-newspaper"></i> Berita &amp; Informasi</a>
-    <a href="#legalitas"><i class="fa-solid fa-award"></i> Akreditasi</a>
-    <a href="#kontak"><i class="fa-solid fa-phone"></i> Kontak</a>
+    <a href="#/beranda"><i class="fa-solid fa-house"></i> Beranda</a>
+    <a href="#/profil"><i class="fa-solid fa-building-columns"></i> Profil Sekolah</a>
+    <a href="#/galeri"><i class="fa-regular fa-images"></i> Galeri Kegiatan</a>
+    <a href="#/berita"><i class="fa-regular fa-newspaper"></i> Berita &amp; Informasi</a>
+    <a href="#/akreditasi"><i class="fa-solid fa-award"></i> Akreditasi</a>
+    <a href="#/kontak"><i class="fa-solid fa-phone"></i> Kontak</a>
   </nav>
   <div class="drawer-foot"><small>STATUS AKREDITASI</small><span class="badge gold">TERAKREDITASI B</span></div>
 </aside>
 
 <main id="beranda">
-  <section class="hero">
+  <div class="view active" id="page-beranda">
+<section class="hero">
     <div class="hero-body">
       <div class="chips"><span class="chip red"><i class="fa-solid fa-circle"></i> PPDB 2026/2027</span><span class="chip">Sekolah Berkualitas</span></div>
       <h1>SDN Cikuya 3</h1>
       <p>Membentuk generasi berkarakter Pancasila, cerdas, terampil, dan berakhlak mulia di era Merdeka Belajar.</p>
-      <a class="btn" href="profil.html">Profil Sekolah <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="btn" href="#/profil">Profil Sekolah <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </section>
-
-  <div class="sheet">
+    <div class="sheet">
     <section class="card welcome">
       <span class="tile blue"><i class="fa-solid fa-graduation-cap"></i></span>
       <div><small class="label">SAMBUTAN SEKOLAH <span class="badge gold">2026/2027</span></small>
@@ -282,15 +70,14 @@ body.no-scroll{overflow:hidden}
 
     <section id="data">
       <h2 class="sec">Data Pokok Pendidikan <small>Klik kartu untuk lihat data lengkap</small></h2>
-
       <div class="stats">
-        <a href="siswa.html" class="card stat">
+        <a href="#/siswa" class="card stat">
           <small>Total Siswa</small>
           <b>445 <em>Anak</em></b>
           <span class="foot">244 L &nbsp;•&nbsp; 201 P</span>
         </a>
 
-        <a href="guru.html" class="card stat">
+        <a href="#/guru" class="card stat">
           <small>Guru &amp; Tendik</small>
           <b>14 <em>Pendidik</em></b>
           <span class="foot">92.8% Sarjana S1/S2</span>
@@ -302,58 +89,247 @@ body.no-scroll{overflow:hidden}
           <span class="foot">BAN-S/M Banten</span>
         </div>
       </div>
-
-      <div class="card mt" id="legalitas">
-        <div class="legal-head"><span class="tile red"><i class="fa-solid fa-shield-halved"></i></span>
-          <div><strong>Legalitas Satuan Pendidikan</strong><small>Kementerian Pendidikan Dasar dan Menengah RI</small></div><span class="badge gold">NEGERI</span></div>
-        <div class="grid2 tight">
-          <div class="cell"><small>NPSN Resmi</small><b>20604200</b></div>
-          <div class="cell"><small>Kurikulum Aktif</small><b class="red-t">SD Merdeka</b></div>
-          <div class="cell"><small>Waktu KBM</small><b>6 Hari (Double Shift)</b></div>
-          <div class="cell"><small>Tahun Ajaran</small><b>2026/2027 Gasal</b></div>
-        </div>
-        <div class="note"><i class="fa-solid fa-book-open"></i> Rasio Siswa / Guru: 32<br>Proporsi Guru PNS/PPPK: 57.14%</div>
-      </div>
     </section>
 
     <section>
-      <h2 class="sec">Menu Layanan Cepat <small>Navigasi Utama</small></h2>
-      <div class="grid3">
-        <button class="quick" data-modal="visi"><span class="tile blue"><i class="fa-solid fa-flag"></i></span><b>Visi &amp; Misi</b><small>Tujuan Sekolah</small></button>
-        <button class="quick" data-modal="sejarah"><span class="tile blue"><i class="fa-solid fa-landmark"></i></span><b>Sejarah</b><small>Jejak Langkah</small></button>
-        <button class="quick" data-modal="pendidik"><span class="tile blue"><i class="fa-solid fa-people-group"></i></span><b>Pendidik</b><small>14 Tenaga Ahli</small></button>
-        <button class="quick" data-modal="ekskul"><span class="tile blue"><i class="fa-solid fa-person-running"></i></span><b>Ekskul</b><small>4 Cabang Bakat</small></button>
-        <button class="quick" data-modal="prestasi"><span class="tile gold"><i class="fa-solid fa-trophy"></i></span><b>Prestasi</b><small>Tingkat Kec/Kab</small></button>
-        <button class="quick" data-modal="kontak"><span class="tile blue"><i class="fa-solid fa-phone-volume"></i></span><b>Kontak</b><small>Info &amp; PPDB</small></button>
+      <h2 class="sec">Warta Terbaru <a class="more" href="#/berita">Lihat semua <i class="fa-solid fa-arrow-right"></i></a></h2>
+      <div id="wartaHome"></div>
+    </section>
+
+    <section>
+      <h2 class="sec">Galeri Kegiatan <a class="more" href="#/galeri">Lihat semua <i class="fa-solid fa-arrow-right"></i></a></h2>
+      <div class="grid2 gal-grid" id="galeriHome"></div>
+    </section>
+
+    <section>
+      <div class="card cta">
+        <div><b class="red-t">Informasi PPDB 2026/2027</b><small>Hubungi humas sekolah untuk pendaftaran dan informasi lainnya.</small></div>
+        <a class="btn" href="#/kontak">Hubungi Kami</a>
       </div>
     </section>
+    </div>
+  </div>
+  <div class="view" id="page-profil">
+    <div class="page-top"><h1>Profil Sekolah</h1><p>Visi, misi, sejarah, dan identitas SDN Cikuya 3</p></div>
+    <div class="sheet">
+      <p class="lead">
+      Tinjauan faktual satuan pendidikan dasar negeri
+      di Kecamatan Solear, Kabupaten Tangerang berdasarkan
+      data pokok pendidikan dan publikasi ilmiah.
+    </p>
 
-    <section id="warta">
-      <h2 class="sec">Warta &amp; Pengumuman <small class="red-t">Terbaru</small></h2>
-      <article class="announce">
-        <span class="badge gold">PENTING</span> <small>Minggu Ini</small>
-        <h3>Jadwal Asesmen Pembelajaran &amp; Pembagian Rapor</h3>
-        <p>Diberitahukan kepada seluruh wali murid bahwa evaluasi sumatif akhir semester gasal 2026/2027 dimulai bulan depan.</p>
-      </article>
-      <article class="card news"><div class="thumb g1"><i class="fa-solid fa-seedling"></i></div>
-        <div><span class="badge gold">Kurikulum Merdeka</span><h3>Penerapan Projek Penguatan Profil Pelajar Pancasila (P5)</h3><small><i class="fa-regular fa-calendar"></i> 12 Oktober 2026</small></div></article>
-      <article class="card news"><div class="thumb g2"><i class="fa-solid fa-trophy"></i></div>
-        <div><span class="badge gold">Prestasi</span><h3>Juara 1 Lomba Cerdas Cermat &amp; Pramuka Tingkat Solear</h3><small><i class="fa-regular fa-calendar"></i> 28 September 2026</small></div></article>
-      <div id="wartaExtra"></div>
-    </section>
 
-    <section id="ekskul">
-      <h2 class="sec">Ekstrakurikuler Pilihan <small>Geser untuk lihat lainnya</small></h2>
-      <p class="hint-tap"><i class="fa-regular fa-hand-pointer"></i> Ketuk kartu untuk melihat detail</p>
-      <div class="scroller">
-        <div class="card mini"><img class="mini-photo" src="ekskul-pramuka.jfif" alt="Pramuka Inti" loading="lazy"><b>Pramuka Inti</b><small>Wajib Kelas 3-6</small></div>
-        <div class="card mini"><img class="mini-photo" src="ekskul-marawis.jpg" alt="Seni Marawis" loading="lazy"><b>Seni Marawis</b><small>Pentas Religi</small></div>
-        <div class="card mini"><img class="mini-photo" src="ekskul-futsal.jfif" alt="Futsal" loading="lazy"><b>Futsal</b><small>Olahraga</small></div>
-        <div class="card mini"><img class="mini-photo" src="ekskul-tari.jpg" alt="Seni Tari" loading="lazy"><b>Seni Tari</b><small>Tari Tradisional</small></div>
+    <!-- =========================
+         FOTO SEKOLAH
+         ========================= -->
+    <figure class="photo-hero">
+
+      <img
+        src="foto-sekolah.jpg"
+        alt="Gedung SD Negeri Cikuya 3"
+      >
+
+      <figcaption>
+
+        <b>
+          DOKUMENTASI ASLI SITUASI
+        </b>
+
+        <span>
+          Kab. Tangerang
+        </span>
+
+      </figcaption>
+
+    </figure>
+
+
+    <!-- =========================
+         DESKRIPSI SEKOLAH
+         ========================= -->
+    <p class="prose dark">
+
+      SD Negeri Cikuya III merupakan lembaga pendidikan
+      dasar formal berstatus negeri yang berkedudukan
+      di lingkungan pedesaan Desa Cikuya, Kecamatan Solear,
+      Kabupaten Tangerang, Provinsi Banten.
+
+      Keberadaannya mengemban mandat konstitusional
+      dalam mencerdaskan kehidupan bangsa melalui
+      penyediaan akses pembelajaran tingkat dasar
+      bagi anak-anak usia sekolah di kawasan sekitar.
+
+    </p>
+
+
+    <p class="prose">
+
+      Sebagai entitas pendidikan yang berada di bawah
+      naungan regulasi pemerintah daerah dan kementerian
+      terkait, sekolah ini menjalankan kegiatan belajar
+      mengajar berlandaskan kurikulum nasional.
+
+      Kehadiran sekolah menjadi simpul vital dalam
+      menunjang program wajib belajar pendidikan dasar
+      sembilan tahun di wilayah Solear.
+
+    </p>
+
+
+    <!-- =========================
+         IDENTITAS SEKOLAH
+         ========================= -->
+    <h2 class="sec">Visi</h2>
+      <div class="card text-card"><p>Terwujudnya peserta didik yang beriman, berakhlak mulia, cerdas, terampil, dan berkarakter Pancasila.</p></div>
+      <h2 class="sec">Misi</h2>
+      <div class="card text-card"><ul><li>Menerapkan pembelajaran Kurikulum Merdeka yang menyenangkan.</li><li>Membiasakan ibadah, sopan santun, dan disiplin.</li><li>Mengembangkan bakat melalui ekstrakurikuler.</li><li>Menjaga lingkungan sekolah yang bersih dan ramah anak.</li></ul></div>
+      <h2 class="sec">Sejarah Sekolah</h2>
+      <div class="card text-card"><p>SD Negeri Cikuya III berdiri pada 1 Januari 1983 di Desa Cikuya, Kecamatan Solear, Kabupaten Tangerang.</p><p>Sejak berdiri, sekolah melayani anak-anak di kawasan sekitar dan kini terakreditasi B dengan 13 rombongan belajar.</p></div>
+      <h2 class="sec">
+      Identitas &amp; Ringkasan Data Pokok
+    </h2>
+
+
+    <p class="sub">
+      Informasi kelembagaan resmi yang tercatat pada
+      basis data administrasi pendidikan nasional:
+    </p>
+
+
+    <div class="idlist">
+
+      <div class="idrow">
+
+        <small>
+          Nama Satuan Pendidikan
+        </small>
+
+        <span>
+          SD Negeri Cikuya III
+        </span>
+
       </div>
-    </section>
 
-    <section id="galeri">
+
+      <div class="idrow">
+
+        <small>
+          Nomor Pokok Sekolah Nasional (NPSN)
+        </small>
+
+        <span class="red-t strong">
+          20604200
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Status Lembaga
+        </small>
+
+        <span>
+          <i class="dot"></i>
+          Negeri
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Bentuk Pendidikan
+        </small>
+
+        <span>
+          Sekolah Dasar (SD)
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Kewenangan / Pembina
+        </small>
+
+        <span>
+          Pemerintah Daerah / Kemendikdasmen RI
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Tanggal Registrasi / SK Pendirian
+        </small>
+
+        <span>
+          1 Januari 1983
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Status Akreditasi
+        </small>
+
+        <span>
+
+          <b class="pill">
+            Terakreditasi B
+          </b>
+
+          <em>
+            (BAN-S/M)
+          </em>
+
+        </span>
+
+      </div>
+
+
+      <div class="idrow">
+
+        <small>
+          Alamat Resmi
+        </small>
+
+        <span class="addr-t">
+
+          Kampung Pala, RT/RW 016/003,
+          Desa Cikuya, Kecamatan Solear,
+          Kabupaten Tangerang, Provinsi Banten
+          (Kode Pos: 15730)
+
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         AKREDITASI
+         ========================= -->
+    
+      <h2 class="sec">Pendidik &amp; Tenaga Kependidikan</h2>
+      <a class="card contact-card" href="#/guru"><span class="tile blue"><i class="fa-solid fa-people-group"></i></span><span><b>Daftar Guru &amp; Tendik</b><small>Lihat data lengkap pendidik</small></span><i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+  </div>
+  <div class="view" id="page-galeri">
+    <div class="page-top"><h1>Galeri Kegiatan</h1><p>Dokumentasi, ekstrakurikuler, dan prestasi siswa</p></div>
+    <div class="sheet">
+<section id="galeri">
       <h2 class="sec">Dokumentasi &amp; Galeri <small>Aktivitas Siswa</small></h2>
       <p class="hint-tap"><i class="fa-regular fa-hand-pointer"></i> Ketuk foto untuk memperbesar</p>
       <div class="grid2 gal-grid">
@@ -366,7 +342,98 @@ body.no-scroll{overflow:hidden}
       </div>
     </section>
 
-    <section id="kontak">
+    <section id="ekskul">
+      <h2 class="sec">Ekstrakurikuler Pilihan <small>Geser untuk lihat lainnya</small></h2>
+      <p class="hint-tap"><i class="fa-regular fa-hand-pointer"></i> Ketuk kartu untuk melihat detail</p>
+      <div class="scroller">
+        <div class="card mini"><img class="mini-photo" src="ekskul-pramuka.jfif" alt="Pramuka Inti" loading="lazy"><b>Pramuka Inti</b><small>Wajib Kelas 3-6</small></div>
+        <div class="card mini"><img class="mini-photo" src="ekskul-marawis.jpg" alt="Seni Marawis" loading="lazy"><b>Seni Marawis</b><small>Pentas Religi</small></div>
+        <div class="card mini"><img class="mini-photo" src="ekskul-futsal.jfif" alt="Futsal" loading="lazy"><b>Futsal</b><small>Olahraga</small></div>
+        <div class="card mini"><img class="mini-photo" src="ekskul-tari.jpg" alt="Seni Tari" loading="lazy"><b>Seni Tari</b><small>Tari Tradisional</small></div>
+      </div>
+    </section>
+    </div>
+  </div>
+  <div class="view" id="page-berita">
+    <div class="page-top"><h1>Berita &amp; Informasi</h1><p>Kabar dan pengumuman terbaru dari sekolah</p></div>
+    <div class="sheet">
+<section id="warta">
+      <h2 class="sec">Warta &amp; Pengumuman <small class="red-t">Terbaru</small></h2>
+      <article class="announce">
+        <span class="badge gold">PENTING</span> <small>Minggu Ini</small>
+        <h3>Jadwal Asesmen Pembelajaran &amp; Pembagian Rapor</h3>
+        <p>Diberitahukan kepada seluruh wali murid bahwa evaluasi sumatif akhir semester gasal 2026/2027 dimulai bulan depan.</p>
+      </article>
+      <article class="card news"><div class="thumb g1"><i class="fa-solid fa-seedling"></i></div>
+        <div><span class="badge gold">Kurikulum Merdeka</span><h3>Penerapan Projek Penguatan Profil Pelajar Pancasila (P5)</h3><small><i class="fa-regular fa-calendar"></i> 12 Oktober 2026</small></div></article>
+      <article class="card news"><div class="thumb g2"><i class="fa-solid fa-trophy"></i></div>
+        <div><span class="badge gold">Prestasi</span><h3>Juara 1 Lomba Cerdas Cermat &amp; Pramuka Tingkat Solear</h3><small><i class="fa-regular fa-calendar"></i> 28 September 2026</small></div></article>
+      <div id="wartaExtra"></div>
+    </section>
+    </div>
+  </div>
+  <div class="view" id="page-akreditasi">
+    <div class="page-top"><h1>Akreditasi</h1><p>Legalitas dan status mutu sekolah</p></div>
+    <div class="sheet">
+<div class="card mt" id="legalitas">
+        <div class="legal-head"><span class="tile red"><i class="fa-solid fa-shield-halved"></i></span>
+          <div><strong>Legalitas Satuan Pendidikan</strong><small>Kementerian Pendidikan Dasar dan Menengah RI</small></div><span class="badge gold">NEGERI</span></div>
+        <div class="grid2 tight">
+          <div class="cell"><small>NPSN Resmi</small><b>20604200</b></div>
+          <div class="cell"><small>Kurikulum Aktif</small><b class="red-t">SD Merdeka</b></div>
+          <div class="cell"><small>Waktu KBM</small><b>6 Hari (Double Shift)</b></div>
+          <div class="cell"><small>Tahun Ajaran</small><b>2026/2027 Gasal</b></div>
+        </div>
+        <div class="note"><i class="fa-solid fa-book-open"></i> Rasio Siswa / Guru: 32<br>Proporsi Guru PNS/PPPK: 57.14%</div>
+      </div>
+      <h2 class="sec">
+      Status Akreditasi Lembaga
+    </h2>
+
+
+    <div class="akr">
+
+      <strong>
+        Peringkat Akreditasi B
+      </strong>
+
+      <small>
+        Kriteria: Memenuhi Standar Nasional Pendidikan
+      </small>
+
+      <span class="pill blue">
+        Diterbitkan oleh BAN-S/M
+      </span>
+
+    </div>
+
+
+    <p class="prose">
+
+      Peringkat akreditasi ini merupakan hasil penilaian
+      kelayakan program dan satuan pendidikan yang
+      diselenggarakan secara independen oleh Badan
+      Akreditasi Nasional Sekolah/Madrasah (BAN-S/M)
+      berdasarkan pemenuhan 8 Standar Nasional
+      Pendidikan (SNP).
+
+    </p>
+
+
+    
+      <h2 class="sec">Status Mutu</h2>
+      <div class="card text-card">
+        <p><strong>Status Akreditasi: Grade B</strong></p>
+        <p>SD Negeri Cikuya 3 terakreditasi <strong>B (Baik)</strong> oleh Badan Akreditasi Nasional Sekolah/Madrasah (BAN-S/M) Provinsi Banten.</p>
+        <p>Penilaian akreditasi mencakup 4 indikator utama:</p>
+        <ul><li>Mutu Lulusan Peserta Didik</li><li>Proses Pembelajaran Efektif</li><li>Mutu Guru &amp; Pendidik</li><li>Manajemen &amp; Pengelolaan Sekolah</li></ul>
+      </div>
+    </div>
+  </div>
+  <div class="view" id="page-kontak">
+    <div class="page-top"><h1>Kontak</h1><p>Lokasi dan kontak resmi sekolah</p></div>
+    <div class="sheet">
+<section id="kontak">
       <h2 class="sec">Lokasi &amp; Kontak Resmi <small>Solear Tangerang</small></h2>
       <div class="card">
         <div class="map">
@@ -380,6 +447,141 @@ body.no-scroll{overflow:hidden}
       </div>
       <div class="card tagline"><i class="fa-solid fa-hands-holding-child red-t"></i> <b class="red-t">PENDIDIKAN RAMAH ANAK</b><small>Mendukung program Merdeka Belajar untuk mencetak anak didik yang mandiri, kritis, berkebinekaan global, dan bahagia di lingkungan sekolah.</small></div>
     </section>
+    </div>
+  </div>
+  <div class="view" id="page-siswa">
+    <div class="page-top"><h1>Data Siswa</h1><p>Daftar siswa SDN Cikuya 3</p></div>
+    <div class="sheet">
+      <a class="back" href="#/beranda"><i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda</a>
+      <div class="card" style="background:#fff; padding:25px; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:2px solid #eee; padding-bottom:15px; margin-bottom:15px;">
+      <div>
+        <h2 style="margin:0; color:#333;">Data Mentah Siswa SDN Cikuya 3</h2>
+        <p id="siswaTotalText" style="margin:5px 0 0; color:#666; font-size:14px;">Total Siswa: 445 Anak (244 Laki-laki / 201 Perempuan)</p>
+      </div>
+      
+      <!-- Tombol Download Excel -->
+      <button onclick="exportToExcel('tabelSiswa', 'Data_Siswa_SDN_Cikuya_3')" style="background:#1d6f42; color:#fff; border:none; padding:10px 16px; border-radius:6px; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:8px;">
+        <i class="fa-solid fa-file-excel"></i> Export / Download Excel
+      </button>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table id="tabelSiswa" style="width:100%; border-collapse:collapse; text-align:left; font-size:14px;">
+        <thead>
+          <tr style="background:#f8f9fa; border-bottom:2px solid #ddd; color:#800000;">
+            <th style="padding:10px;">No</th>
+            <th style="padding:10px;">NISN</th>
+            <th style="padding:10px;">Nama Siswa</th>
+            <th style="padding:10px;">Kelas</th>
+            <th style="padding:10px;">Jenis Kelamin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">1</td>
+            <td style="padding:10px;">0123456781</td>
+            <td style="padding:10px;">Ahmad Fauzi</td>
+            <td style="padding:10px;">1A</td>
+            <td style="padding:10px;">Laki-laki</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">2</td>
+            <td style="padding:10px;">0123456782</td>
+            <td style="padding:10px;">Siti Nurhaliza</td>
+            <td style="padding:10px;">1A</td>
+            <td style="padding:10px;">Perempuan</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">3</td>
+            <td style="padding:10px;">0123456783</td>
+            <td style="padding:10px;">Budi Santoso</td>
+            <td style="padding:10px;">2B</td>
+            <td style="padding:10px;">Laki-laki</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">4</td>
+            <td style="padding:10px;">0123456784</td>
+            <td style="padding:10px;">Dewi Lestari</td>
+            <td style="padding:10px;">3A</td>
+            <td style="padding:10px;">Perempuan</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">5</td>
+            <td style="padding:10px;">0123456785</td>
+            <td style="padding:10px;">Eko Prasetyo</td>
+            <td style="padding:10px;">4B</td>
+            <td style="padding:10px;">Laki-laki</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    </div>
+  </div>
+  <div class="view" id="page-guru">
+    <div class="page-top"><h1>Data Guru &amp; Tendik</h1><p>Daftar pendidik dan tenaga kependidikan</p></div>
+    <div class="sheet">
+      <a class="back" href="#/beranda"><i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda</a>
+      <div class="card" style="background:#fff; padding:25px; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-bottom:2px solid #eee; padding-bottom:15px; margin-bottom:15px;">
+      <div>
+        <h2 style="margin:0; color:#333;">Data Guru &amp; Tenaga Kependidikan</h2>
+        <p id="guruTotalText" style="margin:5px 0 0; color:#666; font-size:14px;">Total: 14 Pendidik &amp; Tendik</p>
+      </div>
+      
+      <!-- Tombol Download Excel -->
+      <button onclick="exportToExcel('tabelGuru', 'Data_Guru_SDN_Cikuya_3')" style="background:#1d6f42; color:#fff; border:none; padding:10px 16px; border-radius:6px; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:8px;">
+        <i class="fa-solid fa-file-excel"></i> Export / Download Excel
+      </button>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table id="tabelGuru" style="width:100%; border-collapse:collapse; text-align:left; font-size:14px;">
+        <thead>
+          <tr style="background:#f8f9fa; border-bottom:2px solid #ddd; color:#800000;">
+            <th style="padding:10px;">No</th>
+            <th style="padding:10px;">Nama Guru / Pendidik</th>
+            <th style="padding:10px;">Jabatan / Tugas</th>
+            <th style="padding:10px;">Kualifikasi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">1</td>
+            <td style="padding:10px;">Kepala Sekolah, S.Pd.</td>
+            <td style="padding:10px;">Kepala Sekolah</td>
+            <td style="padding:10px;">S1 Pendidikan</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">2</td>
+            <td style="padding:10px;">Guru Kelas 1, S.Pd.</td>
+            <td style="padding:10px;">Guru Wali Kelas 1</td>
+            <td style="padding:10px;">S1 Pendidikan</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">3</td>
+            <td style="padding:10px;">Guru Kelas 2, S.Pd.</td>
+            <td style="padding:10px;">Guru Wali Kelas 2</td>
+            <td style="padding:10px;">S1 Pendidikan</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">4</td>
+            <td style="padding:10px;">Guru PAI, S.Pd.I.</td>
+            <td style="padding:10px;">Guru Agama Islam</td>
+            <td style="padding:10px;">S1 PAI</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:10px;">5</td>
+            <td style="padding:10px;">Guru PJOK, S.Pd.</td>
+            <td style="padding:10px;">Guru Olahraga</td>
+            <td style="padding:10px;">S1 Olahraga</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    </div>
   </div>
 </main>
 
@@ -413,388 +615,6 @@ body.no-scroll{overflow:hidden}
     </div>
   </div>
 </div>
-<script>
-const $ = (id) => document.getElementById(id);
-const drawer = $('drawer'), overlay = $('overlay'), modal =$('modal');
-
-function toggleMenu(open) {
-  drawer.classList.toggle('open', open);
-  overlay.classList.toggle('show', open);
-  drawer.setAttribute('aria-hidden', String(!open));
-}
-$('openMenu').addEventListener('click', () => toggleMenu(true));$('closeMenu').addEventListener('click', () => toggleMenu(false));
-overlay.addEventListener('click', () => toggleMenu(false));
-drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggleMenu(false)));
-
-const content = {
-  // DATA MODUL SISWA
-  siswa: ['Data Siswa SDN Cikuya 3', `<p><small>Total: 445 Siswa (244 L / 201 P)</small></p>
-    <div style="margin-top: 12px; max-height: 320px; overflow-y: auto;">
-      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13px;">
-        <thead>
-          <tr style="border-bottom: 2px solid var(--line); color: var(--maroon, #800000);">
-            <th style="padding: 6px;">No</th>
-            <th style="padding: 6px;">NISN</th>
-            <th style="padding: 6px;">Nama Siswa</th>
-            <th style="padding: 6px;">Kelas</th>
-            <th style="padding: 6px;">L/P</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">1</td>
-            <td style="padding: 6px;">0123456781</td>
-            <td style="padding: 6px;">Ahmad Fauzi</td>
-            <td style="padding: 6px;">1A</td>
-            <td style="padding: 6px;">L</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">2</td>
-            <td style="padding: 6px;">0123456782</td>
-            <td style="padding: 6px;">Siti Nurhaliza</td>
-            <td style="padding: 6px;">1A</td>
-            <td style="padding: 6px;">P</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">3</td>
-            <td style="padding: 6px;">0123456783</td>
-            <td style="padding: 6px;">Budi Santoso</td>
-            <td style="padding: 6px;">2B</td>
-            <td style="padding: 6px;">L</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">4</td>
-            <td style="padding: 6px;">0123456784</td>
-            <td style="padding: 6px;">Dewi Lestari</td>
-            <td style="padding: 6px;">3A</td>
-            <td style="padding: 6px;">P</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">5</td>
-            <td style="padding: 6px;">0123456785</td>
-            <td style="padding: 6px;">Eko Prasetyo</td>
-            <td style="padding: 6px;">4B</td>
-            <td style="padding: 6px;">L</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>`],
-
-  // DATA MODUL GURU
-  guru: ['Daftar Guru & Tenaga Kependidikan', `<p><small>Total: 14 Pendidik & Tendik</small></p>
-    <div style="margin-top: 12px; max-height: 320px; overflow-y: auto;">
-      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13px;">
-        <thead>
-          <tr style="border-bottom: 2px solid var(--line); color: var(--maroon, #800000);">
-            <th style="padding: 6px;">No</th>
-            <th style="padding: 6px;">Nama Guru</th>
-            <th style="padding: 6px;">Jabatan / Tugas</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">1</td>
-            <td style="padding: 6px;">Kepala Sekolah, S.Pd.</td>
-            <td style="padding: 6px;">Kepala Sekolah</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">2</td>
-            <td style="padding: 6px;">Guru Kelas 1, S.Pd.</td>
-            <td style="padding: 6px;">Guru Wali Kelas 1</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">3</td>
-            <td style="padding: 6px;">Guru Kelas 2, S.Pd.</td>
-            <td style="padding: 6px;">Guru Wali Kelas 2</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">4</td>
-            <td style="padding: 6px;">Guru PAI, S.Pd.I.</td>
-            <td style="padding: 6px;">Guru Agama Islam</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">5</td>
-            <td style="padding: 6px;">Guru PJOK, S.Pd.</td>
-            <td style="padding: 6px;">Guru Olahraga</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>`],
-
-  // MODUL EXPLANATION STATUS MUTU
-  mutu: ['Status Mutu Sekolah', `<div style="line-height: 1.6; font-size: 13px;">
-    <p><strong>Status Akreditasi: Grade B</strong></p>
-    <p>SD Negeri Cikuya 3 terakreditasi <strong>B (Baik)</strong> oleh Badan Akreditasi Nasional Sekolah/Madrasah (BAN-S/M) Provinsi Banten.</p>
-    <br>
-    <p>Penilaian akreditasi ini mencakup 4 indikator utama:</p>
-    <ul style="padding-left: 20px; margin-top: 6px;">
-      <li>Mutu Lulusan Peserta Didik</li>
-      <li>Proses Pembelajaran Efektif</li>
-      <li>Mutu Guru & Pendidik</li>
-      <li>Manajemen & Pengelolaan Sekolah</li>
-    </ul>
-  </div>`],
-
-  visi: ['Visi & Misi', `<p><b>Visi:</b> Terwujudnya peserta didik yang beriman, berakhlak mulia, cerdas, terampil, dan berkarakter Pancasila.</p>
-    <ul><li>Menerapkan pembelajaran Kurikulum Merdeka yang menyenangkan.</li><li>Membiasakan ibadah, sopan santun, dan disiplin.</li><li>Mengembangkan bakat melalui ekstrakurikuler.</li><li>Menjaga lingkungan sekolah yang bersih dan ramah anak.</li></ul>`],
-  sejarah: ['Sejarah Sekolah', `<p>SD Negeri Cikuya III berdiri pada 1 Januari 1983 di Desa Cikuya, Kecamatan Solear, Kabupaten Tangerang.</p>
-    <p>Sejak berdiri, sekolah melayani anak-anak di kawasan sekitar dan kini terakreditasi B dengan 13 rombongan belajar.</p>`],
-  pendidik: ['Pendidik & Tenaga Kependidikan', `<p>SDN Cikuya III memiliki 14 pendidik dan tenaga kependidikan. Sebanyak 92,8% berpendidikan S1/S2 dan 57,14% berstatus PNS/PPPK.</p>`],
-  ekskul: ['Ekstrakurikuler', `<ul><li>Pramuka (wajib kelas 3-6)</li><li>Seni Marawis</li><li>Seni Tari</li><li>Futsal</li><li>Olahraga lainnya</li></ul>`],
-  prestasi: ['Prestasi Siswa', `<ul><li>Juara 1 Lomba Cerdas Cermat tingkat Kecamatan Solear</li><li>Harapan 1 Pentas Seni Tari FLS2N SD</li><li>Juara Pramuka tingkat Kecamatan</li></ul>`],
-  kontak: ['Kontak & Informasi PPDB', `<p>Hubungi humas sekolah untuk informasi PPDB 2026/2027.</p>
-    <p><b>Telepon/WhatsApp:</b> <a href="tel:+6281317178510">0813-1717-8510</a><br><b>Email:</b> <a href="mailto:sdncikuya30@gmail.com">sdncikuya30@gmail.com</a></p>
-    <p><b>Alamat:</b> Kp. Pala, Desa Cikuya, Kec. Solear, Kab. Tangerang, Banten 15730.</p>`],
-};
-
-if (modal) {
-  function openModal(key) {
-    if (!content[key]) return;
-    const [title, body] = content[key];
-    $('modalTitle').textContent = title;
-    $('modalBody').innerHTML = body;
-    modal.classList.add('show');
-  }
-  function closeModal() { modal.classList.remove('show'); }
-
-  document.querySelectorAll('[data-modal]').forEach((el) =>
-    el.addEventListener('click', () => openModal(el.dataset.modal)));
-  $('closeModal').addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') { closeModal(); toggleMenu(false); }
-  });
-}
-
-// ==== Data dari Admin Panel (localStorage) ====
-// Admin menyimpan: cikuya_warta, cikuya_galeri, cikuya_profil, cikuya_siswa, cikuya_guru
-function loadData(key, fallback) {
-  try {
-    const raw = localStorage.getItem(key);
-    return raw ? JSON.parse(raw) : fallback;
-  } catch (e) { return fallback; }
-}
-function esc(str) {
-  return String(str).replace(/[&<>"']/g, (c) =>
-    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-}
-
-// ---- Warta ----
-(function () {
-  const wartaExtra = $('wartaExtra');
-  if (!wartaExtra) return;
-  const gradients = ['g1', 'g2', 'g3', 'g4'];
-  const icons = { Prestasi: 'fa-trophy', Pengumuman: 'fa-bullhorn', Penting: 'fa-circle-exclamation' };
-  loadData('cikuya_warta', []).forEach((item, i) => {
-    wartaExtra.insertAdjacentHTML('beforeend', `
-      <article class="card news"><div class="thumb ${gradients[i % gradients.length]}"><i class="fa-solid ${icons[item.kategori] || 'fa-seedling'}"></i></div>
-        <div><span class="badge gold">${esc(item.kategori)}</span><h3>${esc(item.judul)}</h3><small><i class="fa-regular fa-calendar"></i> ${esc(item.tanggal)}</small></div></article>
-    `);
-  });
-})();
-
-// ---- Galeri ----
-(function () {
-  const grid = document.querySelector('#galeri .gal-grid');
-  const data = loadData('cikuya_galeri', null);
-  if (!grid || !Array.isArray(data) || !data.length) return;
-  grid.innerHTML = data.map((g) => {
-    if (g.jenis === 'video') {
-      return `<figure class="card gal"><a href="${esc(g.src)}" target="_blank" rel="noopener">
-        <div class="photo g2" style="height:110px"><i class="fa-solid fa-circle-play"></i></div>
-        <b>${esc(g.judul)}</b><small>Tonton video</small></a></figure>`;
-    }
-    return `<figure class="card gal"><img class="photo" src="${esc(g.src)}" alt="${esc(g.judul)}" loading="lazy"><b>${esc(g.judul)}</b><small>Dokumentasi kegiatan</small></figure>`;
-  }).join('');
-})();
-
-// ---- Data siswa & guru ----
-(function () {
-  const siswa = loadData('cikuya_siswa', null);
-  const guru = loadData('cikuya_guru', null);
-  const pct = (v, t) => (t ? (v / t * 100).toFixed(2).replace(/\.?0+$/, '') : '0');
-
-  if (siswa) {
-    const total = siswa.laki + siswa.perempuan;
-    const card = document.querySelector('a[href="siswa.html"]');
-    if (card) {
-      card.querySelector('b').innerHTML = `${total} <em>Anak</em>`;
-      card.querySelector('.foot').textContent = `${siswa.laki} L  •  ${siswa.perempuan} P`;
-    }
-    content.siswa[1] = content.siswa[1].replace(
-      /Total: [^<]*/, `Total: ${total} Siswa (${siswa.laki} L / ${siswa.perempuan} P)`);
-  }
-
-  if (guru) {
-    const card = document.querySelector('a[href="guru.html"]');
-    if (card) {
-      card.querySelector('b').innerHTML = `${guru.total} <em>Pendidik</em>`;
-      card.querySelector('.foot').textContent = `${pct(guru.sarjana, guru.total)}% Sarjana S1/S2`;
-    }
-    const menu = document.querySelector('[data-modal="pendidik"] small');
-    if (menu) menu.textContent = `${guru.total} Tenaga Ahli`;
-    content.guru[1] = content.guru[1].replace(
-      /Total: [^<]*/, `Total: ${guru.total} Pendidik & Tendik`);
-    content.pendidik[1] = `<p>SDN Cikuya III memiliki ${guru.total} pendidik dan tenaga kependidikan. Sebanyak ${pct(guru.sarjana, guru.total)}% berpendidikan S1/S2 dan ${pct(guru.pns, guru.total)}% berstatus PNS/PPPK.</p>`;
-  }
-
-  if (siswa && guru && guru.total) {
-    const note = document.querySelector('#legalitas .note');
-    if (note) note.innerHTML = `<i class="fa-solid fa-book-open"></i> Rasio Siswa / Guru: ${Math.round((siswa.laki + siswa.perempuan) / guru.total)}<br>Proporsi Guru PNS/PPPK: ${pct(guru.pns, guru.total)}%`;
-  }
-})();
-
-// ---- Profil sekolah ----
-(function () {
-  const p = loadData('cikuya_profil', null);
-  if (!p) return;
-  const q = (sel) => document.querySelector(sel);
-
-  const cells = document.querySelectorAll('#legalitas .cell b');
-  if (cells[0] && p.npsn) cells[0].textContent = p.npsn;
-  if (cells[1] && p.kurikulum) cells[1].textContent = p.kurikulum;
-
-  const grade = p.akreditasi && p.akreditasi.length === 1;
-  const mutu = q('[data-modal="mutu"] b');
-  if (mutu) mutu.textContent = grade ? `Grade ${p.akreditasi}` : (p.akreditasi || '-');
-  const drawerBadge = q('.drawer-foot .badge');
-  if (drawerBadge) drawerBadge.textContent = grade ? `TERAKREDITASI ${p.akreditasi}` : String(p.akreditasi).toUpperCase();
-  const chip = q('.footer .chip.dark');
-  if (chip) chip.textContent = grade ? `Akreditasi ${p.akreditasi}` : p.akreditasi;
-
-  if (p.alamat) {
-    const addr = q('#kontak .addr');
-    if (addr) addr.lastChild.textContent = p.alamat;
-    const foot = document.querySelectorAll('.footer p');
-    if (foot[1]) foot[1].textContent = p.alamat;
-  }
-
-  if (p.telp) {
-    const digits = p.telp.replace(/\D/g, '').replace(/^0/, '62');
-    const wa = q('#kontak a[href^="https://wa.me/"]');
-    if (wa) { wa.href = `https://wa.me/${digits}`; wa.querySelector('b').textContent = p.telp; }
-    const kontakModal = content.kontak[1];
-    content.kontak[1] = kontakModal
-      .replace(/href="tel:[^"]*">[^<]*/, `href="tel:+${digits}">${esc(p.telp)}`);
-  }
-  if (p.email) {
-    const mail = q('#kontak a[href*="mail.google.com"]');
-    if (mail) {
-      mail.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(p.email)}`;
-      mail.querySelector('b').textContent = p.email;
-    }
-    content.kontak[1] = content.kontak[1]
-      .replace(/href="mailto:[^"]*">[^<]*/, `href="mailto:${esc(p.email)}">${esc(p.email)}`);
-  }
-  if (p.telp || p.email) {
-    const contactP = document.querySelectorAll('.footer p')[2];
-    if (contactP) contactP.innerHTML =
-      `<i class="fa-solid fa-phone"></i> ${esc(p.telp || '')}<br><i class="fa-regular fa-envelope"></i> ${esc(p.email || '')}`;
-  }
-})();
-
-// ==== Detail Ekstrakurikuler & Galeri ====
-// Edit teks di bawah ini kapan saja (jadwal, deskripsi) tanpa menyentuh bagian lain.
-const ESKUL_INFO = {
-  'Pramuka Inti': {
-    jadwal: 'Sabtu, 14.00 - 16.00 WIB',
-    desc: 'Pramuka melatih kemandirian, disiplin, dan kerja sama lewat baris-berbaris, tali-temali, sandi, serta kegiatan perkemahan. Diikuti seluruh siswa kelas 3 sampai 6 sebagai bagian dari penguatan karakter Profil Pelajar Pancasila.'
-  },
-  'Seni Marawis': {
-    jadwal: 'Jumat, 13.30 - 15.00 WIB',
-    desc: 'Seni musik bernuansa Islami dengan alat perkusi marawis dan lantunan sholawat. Siswa belajar irama, kekompakan, dan rasa percaya diri, lalu tampil di pentas religi dan peringatan hari besar Islam.'
-  },
-  'Futsal': {
-    jadwal: 'Rabu, 15.00 - 16.30 WIB',
-    desc: 'Latihan teknik dasar seperti mengumpan, menggiring, dan menendang bola, ditambah permainan tim. Tujuannya menjaga kebugaran sekaligus menumbuhkan sportivitas dan semangat kebersamaan.'
-  },
-  'Seni Tari': {
-    jadwal: 'Kamis, 14.00 - 15.30 WIB',
-    desc: 'Siswa mempelajari tari tradisional untuk melatih kelenturan, ekspresi, dan kepercayaan diri. Latihan juga disiapkan untuk pentas sekolah dan ajang seni seperti FLS2N SD.'
-  }
-};
-const GALERI_INFO = {
-  'Upacara Bendera': 'Upacara bendera dilaksanakan rutin untuk menumbuhkan cinta tanah air, disiplin, dan rasa hormat kepada simbol negara. Petugas upacara dari kalangan siswa bertugas secara bergiliran.',
-  'Literasi Pagi': 'Kegiatan membaca bersama sebelum pelajaran dimulai untuk menumbuhkan kebiasaan gemar membaca. Siswa memilih buku yang mereka sukai dan membacanya dengan tenang di sudut baca.'
-};
-
-(function () {
-  const detail = $('detail');
-  if (!detail) return;
-  const row = (icon, label, value) =>
-    `<div><i class="fa-solid ${icon}"></i><span><small>${esc(label)}</small><b>${esc(value)}</b></span></div>`;
-
-  function openDetail({ title, img, tag, desc, meta }) {
-    const media = $('detailMedia');
-    media.innerHTML = '';
-    if (img) {
-      const el = new Image();
-      el.alt = title;
-      el.onerror = () => { media.innerHTML = '<i class="fa-regular fa-image"></i>'; };
-      el.src = img;
-      media.appendChild(el);
-    } else {
-      media.innerHTML = '<i class="fa-regular fa-image"></i>';
-    }
-    $('detailTag').textContent = tag;
-    $('detailTitle').textContent = title;
-    $('detailDesc').textContent = desc;
-    $('detailMeta').innerHTML = meta.join('');
-    detail.classList.add('show');
-    document.body.classList.add('no-scroll');
-    $('closeDetail').focus();
-  }
-  function closeDetail() {
-    detail.classList.remove('show');
-    document.body.classList.remove('no-scroll');
-  }
-
-  function showEskul(card) {
-    const title = card.querySelector('b').textContent.trim();
-    const info = ESKUL_INFO[title] || {};
-    const sub = card.querySelector('small').textContent.trim();
-    openDetail({
-      title, tag: 'Ekstrakurikuler',
-      img: card.querySelector('img') && card.querySelector('img').getAttribute('src'),
-      desc: info.desc || 'Kegiatan ekstrakurikuler SDN Cikuya 3 untuk mengembangkan minat dan bakat siswa.',
-      meta: [row('fa-circle-info', 'Keterangan', sub)]
-        .concat(info.jadwal ? [row('fa-clock', 'Jadwal latihan', info.jadwal)] : [])
-    });
-  }
-  function showGaleri(card) {
-    const title = card.querySelector('b').textContent.trim();
-    const img = card.querySelector('img');
-    openDetail({
-      title, tag: 'Dokumentasi Kegiatan',
-      img: img && img.getAttribute('src'),
-      desc: GALERI_INFO[title] || 'Dokumentasi kegiatan siswa SDN Cikuya 3.',
-      meta: [row('fa-camera', 'Keterangan', card.querySelector('small').textContent.trim())]
-    });
-  }
-
-  function handle(e) {
-    const eskul = e.target.closest('#ekskul .mini');
-    if (eskul) return showEskul(eskul);
-    const gal = e.target.closest('#galeri .gal');
-    if (gal && !gal.querySelector('a')) showGaleri(gal);   // kartu video tetap membuka tautannya
-  }
-  document.addEventListener('click', handle);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeDetail();
-    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('#ekskul .mini, #galeri .gal')) {
-      e.preventDefault(); handle(e);
-    }
-  });
-  $('closeDetail').addEventListener('click', closeDetail);
-  detail.addEventListener('click', (e) => { if (e.target === detail) closeDetail(); });
-
-  // Agar bisa dipilih dengan keyboard
-  document.querySelectorAll('#ekskul .mini, #galeri .gal').forEach((el) => {
-    if (el.querySelector('a')) return;
-    el.setAttribute('tabindex', '0');
-    el.setAttribute('role', 'button');
-  });
-})();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
