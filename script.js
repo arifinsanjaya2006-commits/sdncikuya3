@@ -1,110 +1,17 @@
 const $ = (id) => document.getElementById(id);
-const drawer = $('drawer'), overlay = $('overlay'), modal =$('modal');
+const drawer = $('drawer'), overlay = $('overlay'), modal = $('modal');
 
 function toggleMenu(open) {
   drawer.classList.toggle('open', open);
   overlay.classList.toggle('show', open);
   drawer.setAttribute('aria-hidden', String(!open));
 }
-$('openMenu').addEventListener('click', () => toggleMenu(true));$('closeMenu').addEventListener('click', () => toggleMenu(false));
+$('openMenu').addEventListener('click', () => toggleMenu(true));
+$('closeMenu').addEventListener('click', () => toggleMenu(false));
 overlay.addEventListener('click', () => toggleMenu(false));
 drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggleMenu(false)));
 
 const content = {
-  // DATA MODUL SISWA
-  siswa: ['Data Siswa SDN Cikuya 3', `<p><small>Total: 445 Siswa (244 L / 201 P)</small></p>
-    <div style="margin-top: 12px; max-height: 320px; overflow-y: auto;">
-      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13px;">
-        <thead>
-          <tr style="border-bottom: 2px solid var(--line); color: var(--maroon, #800000);">
-            <th style="padding: 6px;">No</th>
-            <th style="padding: 6px;">NISN</th>
-            <th style="padding: 6px;">Nama Siswa</th>
-            <th style="padding: 6px;">Kelas</th>
-            <th style="padding: 6px;">L/P</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">1</td>
-            <td style="padding: 6px;">0123456781</td>
-            <td style="padding: 6px;">Ahmad Fauzi</td>
-            <td style="padding: 6px;">1A</td>
-            <td style="padding: 6px;">L</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">2</td>
-            <td style="padding: 6px;">0123456782</td>
-            <td style="padding: 6px;">Siti Nurhaliza</td>
-            <td style="padding: 6px;">1A</td>
-            <td style="padding: 6px;">P</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">3</td>
-            <td style="padding: 6px;">0123456783</td>
-            <td style="padding: 6px;">Budi Santoso</td>
-            <td style="padding: 6px;">2B</td>
-            <td style="padding: 6px;">L</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">4</td>
-            <td style="padding: 6px;">0123456784</td>
-            <td style="padding: 6px;">Dewi Lestari</td>
-            <td style="padding: 6px;">3A</td>
-            <td style="padding: 6px;">P</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">5</td>
-            <td style="padding: 6px;">0123456785</td>
-            <td style="padding: 6px;">Eko Prasetyo</td>
-            <td style="padding: 6px;">4B</td>
-            <td style="padding: 6px;">L</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>`],
-
-  // DATA MODUL GURU
-  guru: ['Daftar Guru & Tenaga Kependidikan', `<p><small>Total: 14 Pendidik & Tendik</small></p>
-    <div style="margin-top: 12px; max-height: 320px; overflow-y: auto;">
-      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13px;">
-        <thead>
-          <tr style="border-bottom: 2px solid var(--line); color: var(--maroon, #800000);">
-            <th style="padding: 6px;">No</th>
-            <th style="padding: 6px;">Nama Guru</th>
-            <th style="padding: 6px;">Jabatan / Tugas</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">1</td>
-            <td style="padding: 6px;">Kepala Sekolah, S.Pd.</td>
-            <td style="padding: 6px;">Kepala Sekolah</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">2</td>
-            <td style="padding: 6px;">Guru Kelas 1, S.Pd.</td>
-            <td style="padding: 6px;">Guru Wali Kelas 1</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">3</td>
-            <td style="padding: 6px;">Guru Kelas 2, S.Pd.</td>
-            <td style="padding: 6px;">Guru Wali Kelas 2</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">4</td>
-            <td style="padding: 6px;">Guru PAI, S.Pd.I.</td>
-            <td style="padding: 6px;">Guru Agama Islam</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 6px;">5</td>
-            <td style="padding: 6px;">Guru PJOK, S.Pd.</td>
-            <td style="padding: 6px;">Guru Olahraga</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>`],
-
   // MODUL EXPLANATION STATUS MUTU
   mutu: ['Status Mutu Sekolah', `<div style="line-height: 1.6; font-size: 13px;">
     <p><strong>Status Akreditasi: Grade B</strong></p>
@@ -119,13 +26,6 @@ const content = {
     </ul>
   </div>`],
 
-  visi: ['Visi & Misi', `<p><b>Visi:</b> Terwujudnya peserta didik yang beriman, berakhlak mulia, cerdas, terampil, dan berkarakter Pancasila.</p>
-    <ul><li>Menerapkan pembelajaran Kurikulum Merdeka yang menyenangkan.</li><li>Membiasakan ibadah, sopan santun, dan disiplin.</li><li>Mengembangkan bakat melalui ekstrakurikuler.</li><li>Menjaga lingkungan sekolah yang bersih dan ramah anak.</li></ul>`],
-  sejarah: ['Sejarah Sekolah', `<p>SD Negeri Cikuya III berdiri pada 1 Januari 1983 di Desa Cikuya, Kecamatan Solear, Kabupaten Tangerang.</p>
-    <p>Sejak berdiri, sekolah melayani anak-anak di kawasan sekitar dan kini terakreditasi B dengan 13 rombongan belajar.</p>`],
-  pendidik: ['Pendidik & Tenaga Kependidikan', `<p>SDN Cikuya III memiliki 14 pendidik dan tenaga kependidikan. Sebanyak 92,8% berpendidikan S1/S2 dan 57,14% berstatus PNS/PPPK.</p>`],
-  ekskul: ['Ekstrakurikuler', `<ul><li>Pramuka (wajib kelas 3-6)</li><li>Seni Marawis</li><li>Seni Tari</li><li>Futsal</li><li>Olahraga lainnya</li></ul>`],
-  prestasi: ['Prestasi Siswa', `<ul><li>Juara 1 Lomba Cerdas Cermat tingkat Kecamatan Solear</li><li>Harapan 1 Pentas Seni Tari FLS2N SD</li><li>Juara Pramuka tingkat Kecamatan</li></ul>`],
   kontak: ['Kontak & Informasi PPDB', `<p>Hubungi humas sekolah untuk informasi PPDB 2026/2027.</p>
     <p><b>Telepon/WhatsApp:</b> <a href="tel:+6281317178510">0813-1717-8510</a><br><b>Email:</b> <a href="mailto:sdncikuya30@gmail.com">sdncikuya30@gmail.com</a></p>
     <p><b>Alamat:</b> Kp. Pala, Desa Cikuya, Kec. Solear, Kab. Tangerang, Banten 15730.</p>`],
@@ -192,43 +92,7 @@ function esc(str) {
   }).join('');
 })();
 
-// ---- Data siswa & guru ----
-(function () {
-  const siswa = loadData('cikuya_siswa', null);
-  const guru = loadData('cikuya_guru', null);
-  const pct = (v, t) => (t ? (v / t * 100).toFixed(2).replace(/\.?0+$/, '') : '0');
-
-  if (siswa) {
-    const total = siswa.laki + siswa.perempuan;
-    const card = document.querySelector('a[href="#/siswa"]');
-    if (card) {
-      card.querySelector('b').innerHTML = `${total} <em>Anak</em>`;
-      card.querySelector('.foot').textContent = `${siswa.laki} L  •  ${siswa.perempuan} P`;
-    }
-    content.siswa[1] = content.siswa[1].replace(
-      /Total: [^<]*/, `Total: ${total} Siswa (${siswa.laki} L / ${siswa.perempuan} P)`);
-  }
-
-  if (guru) {
-    const card = document.querySelector('a[href="#/guru"]');
-    if (card) {
-      card.querySelector('b').innerHTML = `${guru.total} <em>Pendidik</em>`;
-      card.querySelector('.foot').textContent = `${pct(guru.sarjana, guru.total)}% Sarjana S1/S2`;
-    }
-    const menu = document.querySelector('[data-modal="pendidik"] small');
-    if (menu) menu.textContent = `${guru.total} Tenaga Ahli`;
-    content.guru[1] = content.guru[1].replace(
-      /Total: [^<]*/, `Total: ${guru.total} Pendidik & Tendik`);
-    content.pendidik[1] = `<p>SDN Cikuya III memiliki ${guru.total} pendidik dan tenaga kependidikan. Sebanyak ${pct(guru.sarjana, guru.total)}% berpendidikan S1/S2 dan ${pct(guru.pns, guru.total)}% berstatus PNS/PPPK.</p>`;
-  }
-
-  if (siswa && guru && guru.total) {
-    const note = document.querySelector('#legalitas .note');
-    if (note) note.innerHTML = `<i class="fa-solid fa-book-open"></i> Rasio Siswa / Guru: ${Math.round((siswa.laki + siswa.perempuan) / guru.total)}<br>Proporsi Guru PNS/PPPK: ${pct(guru.pns, guru.total)}%`;
-  }
-})();
-
-// ---- Profil sekolah ----
+// ---- Profil sekolah (opsional dari admin panel) ----
 (function () {
   const p = loadData('cikuya_profil', null);
   if (!p) return;
@@ -257,8 +121,7 @@ function esc(str) {
     const digits = p.telp.replace(/\D/g, '').replace(/^0/, '62');
     const wa = q('#kontak a[href^="https://wa.me/"]');
     if (wa) { wa.href = `https://wa.me/${digits}`; wa.querySelector('b').textContent = p.telp; }
-    const kontakModal = content.kontak[1];
-    content.kontak[1] = kontakModal
+    content.kontak[1] = content.kontak[1]
       .replace(/href="tel:[^"]*">[^<]*/, `href="tel:+${digits}">${esc(p.telp)}`);
   }
   if (p.email) {
@@ -278,28 +141,23 @@ function esc(str) {
 })();
 
 // ==== Detail Ekstrakurikuler & Galeri ====
-// Edit teks di bawah ini kapan saja (jadwal, deskripsi) tanpa menyentuh bagian lain.
+// Edit teks di bawah ini kapan saja tanpa menyentuh bagian lain.
 const ESKUL_INFO = {
-  'Pramuka Inti': {
-    jadwal: 'Sabtu, 14.00 - 16.00 WIB',
-    desc: 'Pramuka melatih kemandirian, disiplin, dan kerja sama lewat baris-berbaris, tali-temali, sandi, serta kegiatan perkemahan. Diikuti seluruh siswa kelas 3 sampai 6 sebagai bagian dari penguatan karakter Profil Pelajar Pancasila.'
+  'Kepramukaan': {
+    desc: 'Kegiatan kepramukaan melatih kemandirian, disiplin, dan kerja sama siswa SDN Cikuya III.'
   },
-  'Seni Marawis': {
-    jadwal: 'Jumat, 13.30 - 15.00 WIB',
-    desc: 'Seni musik bernuansa Islami dengan alat perkusi marawis dan lantunan sholawat. Siswa belajar irama, kekompakan, dan rasa percaya diri, lalu tampil di pentas religi dan peringatan hari besar Islam.'
+  'Olahraga': {
+    desc: 'Kegiatan olahraga meliputi sepak bola, bola sundul, dan futsal untuk menjaga kebugaran serta menumbuhkan sportivitas dan kebersamaan.'
   },
-  'Futsal': {
-    jadwal: 'Rabu, 15.00 - 16.30 WIB',
-    desc: 'Latihan teknik dasar seperti mengumpan, menggiring, dan menendang bola, ditambah permainan tim. Tujuannya menjaga kebugaran sekaligus menumbuhkan sportivitas dan semangat kebersamaan.'
-  },
-  'Seni Tari': {
-    jadwal: 'Kamis, 14.00 - 15.30 WIB',
-    desc: 'Siswa mempelajari tari tradisional untuk melatih kelenturan, ekspresi, dan kepercayaan diri. Latihan juga disiapkan untuk pentas sekolah dan ajang seni seperti FLS2N SD.'
+  'Keputrian': {
+    desc: 'Kegiatan ekstrakurikuler keputrian khusus bagi siswi SDN Cikuya III.'
   }
 };
 const GALERI_INFO = {
-  'Upacara Bendera': 'Upacara bendera dilaksanakan rutin untuk menumbuhkan cinta tanah air, disiplin, dan rasa hormat kepada simbol negara. Petugas upacara dari kalangan siswa bertugas secara bergiliran.',
-  'Literasi Pagi': 'Kegiatan membaca bersama sebelum pelajaran dimulai untuk menumbuhkan kebiasaan gemar membaca. Siswa memilih buku yang mereka sukai dan membacanya dengan tenang di sudut baca.'
+  'Upacara Bendera': 'Upacara bendera diselenggarakan secara khidmat dan memperingati hari-hari besar nasional untuk memupuk cinta tanah air.',
+  'Literasi Pagi': 'Kegiatan baca buku bersama sebagai pembiasaan pagi untuk menumbuhkan kebiasaan gemar membaca.',
+  'Duha Berjamaah': 'Kegiatan salat Duha berjamaah yang dilakukan bersama warga sekolah untuk menanamkan kebiasaan ibadah dan meningkatkan keimanan dan ketakwaan.',
+  'Baca Ayat Pendek / Yasinan': 'Kegiatan membaca ayat pendek dan Yasinan bersama pada hari Jumat sebagai pembiasaan akhlak mulia dan literasi keagamaan.'
 };
 
 (function () {
@@ -393,10 +251,11 @@ function buildHome() {
     if (ann) wh.appendChild(ann.cloneNode(true));
     baru.concat(lama).slice(0, 2).forEach((n) => wh.appendChild(n.cloneNode(true)));
   }
+  // Galeri di beranda: tampilkan SEMUA kegiatan, berjajar ke samping & bisa digeser
   const gh = $('galeriHome'), gg = document.querySelector('#galeri .gal-grid');
   if (gh && gg) {
     gh.innerHTML = '';
-    [...gg.children].slice(0, 2).forEach((c) => gh.appendChild(c.cloneNode(true)));
+    [...gg.children].forEach((c) => gh.appendChild(c.cloneNode(true)));
   }
 }
 
@@ -420,10 +279,3 @@ function exportToExcel(tableID, filename) {
   const wb = XLSX.utils.table_to_book($(tableID), { sheet: 'Data' });
   XLSX.writeFile(wb, (filename || 'Data') + '.xlsx');
 }
-(function () {
-  const s = loadData('cikuya_siswa', null), g = loadData('cikuya_guru', null);
-  if (s && $('siswaTotalText'))
-    $('siswaTotalText').textContent = `Total Siswa: ${s.laki + s.perempuan} Anak (${s.laki} Laki-laki / ${s.perempuan} Perempuan)`;
-  if (g && $('guruTotalText'))
-    $('guruTotalText').textContent = `Total: ${g.total} Pendidik & Tendik`;
-})();
